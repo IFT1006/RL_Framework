@@ -6,11 +6,12 @@ from learningAlgo import LearningAlgo
 def main():
     # define the win rate - index 0 should have the biggest value
     win_rate = [0.6, 0.4]
-    # initialize the list of agents
+
+    # initialize the list of agents and actions
     agents = []
     actions = []
     for i in range(0, 4):
-        env = Environment(len(win_rate), 3)
+        env = Environment(len(win_rate), 3, 4)
         learning_algo = LearningAlgo(2, "TUCB", env)
         agents.append(Agent(env, learning_algo))
         actions.append(0)
