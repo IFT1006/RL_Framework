@@ -13,13 +13,12 @@ class Agent():
     def update(self, action, step_reward, win_rate):
         step_regret = 0
 
-        for i in range(len(self.env.plays)):
-            if action == 0:
-                self.env.plays[0] += 1
-                self.env.avg_reward[0] += (step_reward - self.env.avg_reward[0]) / self.env.plays[0]
-                # no added regret since arm 0 is optimal
-
-            elif action == i:
+        if action == 0:
+            self.env.plays[0] += 1
+            self.env.avg_reward[0] += (step_reward - self.env.avg_reward[0]) / self.env.plays[0]
+            # no added regret since arm 0 is optimal
+        else:
+            for i in range(1, self.env.n_arms):
                 self.env.plays[i] += 1
                 self.env.avg_reward[i] += (step_reward - self.env.avg_reward[i]) / self.env.plays[i]
 

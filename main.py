@@ -5,19 +5,19 @@ from learningAlgo import LearningAlgo
 
 def main():
     # define the win rate - index 0 should have the biggest value
-    win_rate = [0.6, 0.4]
+    win_rate = [0.5, 0.4]
 
     # initialize the list of agents and actions
     agents = []
     actions = []
-    for i in range(0, 4):
-        env = Environment(len(win_rate), 3, 4)
+    for i in range(0, 11):
+        env = Environment(len(win_rate), 10, 11)
         learning_algo = LearningAlgo(2, "TUCB", env)
         agents.append(Agent(env, learning_algo))
         actions.append(0)
 
     # get 100 runs
-    for t in range(0, 100):
+    for t in range(0, 1000):
         # copy list of previous action
         prev_act = list(actions)
 
