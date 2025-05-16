@@ -1,34 +1,22 @@
 import matplotlib.pyplot as plt
-from agent import Agent
-from environment import Environment
-from learningAlgo import LearningAlgo
+import numpy as np
+from execute import Execute
 
 def main():
     # define the win rate - index 0 should have the biggest value
     win_rate = [0.5, 0.4]
+    result = Execute(2000, 1000, 11, win_rate, 2, "TUCB").getResult()
 
-    # initialize the list of agents and actions
-    agents = []
-    actions = []
-    for i in range(0, 11):
-        env = Environment(len(win_rate), 10, 11)
-        learning_algo = LearningAlgo(2, "TUCB", env)
-        agents.append(Agent(env, learning_algo))
-        actions.append(0)
-
-    # get 100 runs
-    for t in range(0, 1000):
-        # copy list of previous action
-        prev_act = list(actions)
-
-        for i in range(len(agents)):
-            actions[i] = agents[i].train(win_rate, prev_act[0:i]+prev_act[(i+1):])
+    avg = np.array(result['avg'])
+    std = np.array(result['std'])
 
     plt.figure(figsize=(12, 8))
-    i = 1
-    for a in agents:
-        plt.plot(a.cumul_regret, label="Agent " + str(i))
-        i += 1
+    # i = 1
+    # for a in agents:
+    x = np.arange(len(avg))
+    plt.plot(x, avg, label="Agent " + str(1))
+    plt.fill_between(x, avg, avg + std, alpha=0.2)
+    #     i += 1
     plt.xlabel("Plays", fontsize=14)
     plt.ylabel("Cumulative regret", fontsize=14)
     plt.xticks(fontsize=14)
