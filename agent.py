@@ -31,7 +31,7 @@ class Agent():
 
     def train(self, win_rate, neighbor_actions):
         if np.argmax(win_rate) != 0:
-            print("Error: index 0 must have the biggest value")
+            raise Exception("Error: index 0 must have the biggest value")
         self.env.t += 1
 
         # get action for the current step

@@ -1,7 +1,7 @@
 class Environment():
     def __init__(self, n_arms, n_neighbors, n_agents):
         if n_neighbors != n_agents - 1:
-            print("Error: n_neighbors must equal n_agents - 1")
+            raise Exception("Error: n_neighbors must equal n_agents - 1")
 
         # number of target plays (will be averaged over neighbours)
         self.target_plays = [0] * n_arms

@@ -22,8 +22,8 @@ class Execute():
             # initialize the list of agents and actions for the current iteration
             agents = []
             actions = []
+            # print to terminal to track the progress
             print(e)
-
             for i in range(0, self.n_agents):
                 env = Environment(len(self.win_rate), self.n_agents - 1, self.n_agents)
                 learning_algo = LearningAlgo(self.const, self.algo, env)
@@ -39,4 +39,4 @@ class Execute():
 
             experiments.append(agents[0].cumul_regret)
 
-        return { 'avg': pd.DataFrame(experiments).mean(), 'std': pd.DataFrame(experiments).std() }
+        return { 'avg': pd.DataFrame(experiments).mean(), 'std': pd.DataFrame(experiments).std() } if self.iteration > 1 else { 'agents': agents }
