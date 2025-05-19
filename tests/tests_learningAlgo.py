@@ -1,4 +1,4 @@
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 from environment import Environment
 from learningAlgo import LearningAlgo
@@ -26,15 +26,36 @@ def tests_initialisation_d_un_algo():
         learning_algo.env, Environment
     ), "Erreur: Le env de l'agent doit être une instance de Environment."
 
-# def tests_getTUCBAction():
-#     env = Environment(2,3, 4)
-#     learning_algo = LearningAlgo(2, 'TUCB', env)
-#
-#     for i in range(100):
-#         agent.train([0.6, 0.4], [0, 0, 0])
-#     assert (
-#         agent.env.t == 100
-#     ), "Erreur: Le nombre de fois jouées doit être 100 après 100 runs."
+environment = Environment(2,3, 4)
+@patch.object(environment, 't', 2)
+def tests_getTUCBActionT():
+    learning_algo = LearningAlgo(2, 'TUCB', environment)
+
+    learning_algo.getTUCBAction([0, 0, 0])
+
+    assert (
+        learning_algo.env.target_plays[0] == 1
+    ), "Erreur: les valeurs dans Target_plays doivent commencer à incrémenter à partir de la 2e itération."
+
+@patch.object(environment, 'plays', [0, 0])
+def tests_getTUCBActionPlay0():
+    learning_algo = LearningAlgo(2, 'TUCB', environment)
+
+    action = learning_algo.getTUCBAction([0, 0, 0])
+
+    assert (
+            action == 0
+    ), "Erreur: l'action pour la 1e itération doit être 0'."
+
+@patch.object(environment, 'plays', [1, 0])
+def tests_getTUCBActionPlay1():
+    learning_algo = LearningAlgo(2, 'TUCB', environment)
+
+    action = learning_algo.getTUCBAction([0, 0, 0])
+
+    assert (
+            action == 1
+    ), "Erreur: l'action pour la 2e itération doit être 1'."
 
 def tests_getAction():
     env = Environment(2, 3, 4)
@@ -54,6 +75,8 @@ def tests_getActionNotCalled():
 
 def tests():
     tests_initialisation_d_un_algo()
-    # tests_getTUCBAction()
+    tests_getTUCBActionT()
+    tests_getTUCBActionPlay0()
+    tests_getTUCBActionPlay1()
     tests_getAction()
     tests_getActionNotCalled()
