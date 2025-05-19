@@ -37,6 +37,16 @@ def tests_winrate_premier_index():
     except Exception:
         pass
 
+def tests_number_neighbor_actions():
+    env = Environment(2, 3, 4)
+    learning_algo = LearningAlgo(2, 'TUCB', env)
+    agent = Agent(env, learning_algo)
+    try:
+        agent.train([0.4, 0.6], [0, 0, 0, 0])
+        assert False, "Error: neighbor actions must have the same number of neighbors"
+    except Exception:
+        pass
+
 def tests_update():
     env = Environment(2,3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
@@ -59,3 +69,4 @@ def tests():
     tests_train()
     tests_winrate_premier_index()
     tests_update()
+    tests_number_neighbor_actions()

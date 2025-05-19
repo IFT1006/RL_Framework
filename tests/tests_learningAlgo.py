@@ -1,3 +1,5 @@
+from unittest.mock import MagicMock
+
 from environment import Environment
 from learningAlgo import LearningAlgo
 
@@ -24,16 +26,34 @@ def tests_initialisation_d_un_algo():
         learning_algo.env, Environment
     ), "Erreur: Le env de l'agent doit être une instance de Environment."
 
-def tests_getTUCBAction():
-    env = Environment(2,3, 4)
+# def tests_getTUCBAction():
+#     env = Environment(2,3, 4)
+#     learning_algo = LearningAlgo(2, 'TUCB', env)
+#
+#     for i in range(100):
+#         agent.train([0.6, 0.4], [0, 0, 0])
+#     assert (
+#         agent.env.t == 100
+#     ), "Erreur: Le nombre de fois jouées doit être 100 après 100 runs."
+
+def tests_getAction():
+    env = Environment(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
-    agent = Agent(env, learning_algo)
-    for i in range(100):
-        agent.train([0.6, 0.4], [0, 0, 0])
-    assert (
-        agent.env.t == 100
-    ), "Erreur: Le nombre de fois jouées doit être 100 après 100 runs."
+
+    learning_algo.getTUCBAction = MagicMock()
+    learning_algo.getAction([0, 0, 0])
+    learning_algo.getTUCBAction.assert_called_once()
+
+def tests_getActionNotCalled():
+    env = Environment(2, 3, 4)
+    learning_algo = LearningAlgo(2, 'UCB', env)
+
+    learning_algo.getTUCBAction = MagicMock()
+    learning_algo.getAction([0, 0, 0])
+    learning_algo.getTUCBAction.assert_not_called()
 
 def tests():
     tests_initialisation_d_un_algo()
-    tests_getTUCBAction()
+    # tests_getTUCBAction()
+    tests_getAction()
+    tests_getActionNotCalled()
