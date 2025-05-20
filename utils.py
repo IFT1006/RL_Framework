@@ -10,14 +10,15 @@ def printGraph(str):
     plt.title(str, fontsize=20)
     plt.show()
 
-def printMean(avg, std):
+def printMean(avg, std, n_agents, n_ins, algo):
     plt.figure(figsize=(12, 8))
 
     x = np.arange(len(avg))
     plt.plot(x, avg, label="Agent " + str(1))
     plt.fill_between(x, avg, avg + std, alpha=0.2)
+    plt.text(.01, .99, str(n_agents)+' agents;'+' '+str(n_ins)+' instances')
 
-    printGraph("Mean of cumulative Regret of TUCB Agent 1 in a Fully Connected Graph")
+    printGraph("Mean of cumulative Regret of "+algo+" Agent 1 in a Fully Connected Graph")
 
 def printRuns(agents):
     plt.figure(figsize=(12, 8))

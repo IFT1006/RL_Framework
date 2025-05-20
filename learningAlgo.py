@@ -47,7 +47,33 @@ class LearningAlgo:
                 action = random.choice([0, self.env.n_arms - 1])
         return action
 
+    def getUCBAction(self):
+        first_time = False
+        for i in range(self.env.n_arms):
+            # play arm for the first time
+            if self.env.plays[i] == 0:
+                action = i
+                first_time = True
+                break
+
+        if not first_time:
+            # start the algo once each action is played once
+            for i in range(self.env.n_arms):
+                self.est_opt[i] = np.sqrt(self.constant * np.log(self.env.t) / self.env.plays[i])
+                self.action_val[i] = self.env.avg_reward[i] + self.est_opt[i]
+
+            if len(set(self.action_val)) > 1:
+                action = np.argmax(self.action_val)
+            else:
+                # tie breaker
+                action = random.choice([0, self.env.n_arms - 1])
+        return action
+
     def getAction(self, neighbor_actions):
-        if self.algo_name == "TUCB":
-            return self.getTUCBAction(neighbor_actions)
-        return None
+        match self.algo_name:
+            case "TUCB":
+                return self.getTUCBAction(neighbor_actions)
+            case "UCB":
+                return self.getUCBAction()
+            case _:
+                return None
