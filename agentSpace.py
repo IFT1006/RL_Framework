@@ -1,8 +1,5 @@
 class AgentSpace():
-    def __init__(self, n_arms, n_neighbors, n_agents, game):
-        if n_neighbors != n_agents - 1:
-            raise Exception("Error: n_neighbors must equal n_agents - 1")
-
+    def __init__(self, n_arms, n_agents, game):
         # number of target plays (will be averaged over neighbours)
         self.target_plays = [0] * n_arms
         # number of own plays for arms 0 and 1
@@ -12,5 +9,5 @@ class AgentSpace():
         # step (play) number
         self.t = 0
         self.n_arms = n_arms
-        self.n_neighbors = n_neighbors
+        self.n_neighbors = n_agents - 1
         self.game = game

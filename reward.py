@@ -7,10 +7,9 @@ class Reward():
         # arm played
         self.arm_played = arm_played
 
-    # def getPDReward(self):
-    #
-
     def getBanditReward(self):
+        if len(self.win_rate) == 0:
+            raise Exception("Error: win rate must not be empty for Bandit game")
         pull = np.random.rand()
 
         for i in range(0, len(self.win_rate)):
