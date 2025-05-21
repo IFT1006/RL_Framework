@@ -1,3 +1,4 @@
+import numpy as np
 from environment import Environnement
 
 class EnvPD(Environnement):
@@ -11,5 +12,6 @@ class EnvPD(Environnement):
     def step(self):
         action1, action2 = self.agents[0].train(), self.agents[1].train()
 
-        self.agents[0].update(action1, self.matrice_jouer_A[action1, action2])
-        self.agents[1].update(action2, self.matrice_jouer_B[action1, action2])
+        self.agents[0].update(action1, self.matrice_jouer_A[action1, action2] + np.random.normal(0.,2))
+        self.agents[1].update(action2, self.matrice_jouer_B[action1, action2] + np.random.normal(0.,2))
+        return { 'a1': action1, 'a2': action2 }

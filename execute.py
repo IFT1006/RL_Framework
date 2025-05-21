@@ -19,20 +19,30 @@ class Execute:
         self.algo = algo
 
     def getPDResult(self):
-        A_PD = np.array([[3, 0],
-                         [5, 1]]).astype(float)
-        B_PD = np.array([[3, 5],
-                         [0, 1]]).astype(float)
-        matrices = [A_PD, B_PD]
-        env = EnvPD(matrices, 2)
+        experiments = []
+        for e in range(0, self.instance):
+            A_PD = np.array([[3, 0],
+                             [5, 1]]).astype(float)
+            B_PD = np.array([[3, 5],
+                             [0, 1]]).astype(float)
+            matrices = [A_PD, B_PD]
+            env = EnvPD(matrices, 2)
+            plays = []
 
-        for j in range(0, self.n_agents):
-            a_space = AgentSpace(2, self.n_agents, 'PD')
-            learning_algo = LearningAlgo(self.const, self.algo, a_space)
-            env.ajouter_agents(Agent(a_space, learning_algo))
+            # print to trace the progress
+            print(e)
 
-        for t in range(0, self.runs):
-            env.step()
+            for j in range(0, self.n_agents):
+                a_space = AgentSpace(2, self.n_agents, 'PD')
+                learning_algo = LearningAlgo(self.const, self.algo, a_space)
+                env.ajouter_agents(Agent(a_space, learning_algo))
+
+            for t in range(0, self.runs):
+                actions = env.step()
+                plays.append(actions['a2'])
+
+            experiments.append(plays)
+        return {'prop': pd.DataFrame(experiments).mean()}
 
     def getBanditResult(self, win_rate, use_rand_win):
         experiments = []
