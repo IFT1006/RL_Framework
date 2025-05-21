@@ -7,8 +7,10 @@ class Reward():
         # arm played
         self.arm_played = arm_played
 
-    def getReward(self):
-        '''Returns a reward from a Bernoulli distribution associated with the arm'''
+    # def getPDReward(self):
+    #
+
+    def getBanditReward(self):
         pull = np.random.rand()
 
         for i in range(0, len(self.win_rate)):

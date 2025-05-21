@@ -1,7 +1,7 @@
-from environment import Environment
+from agentSpace import AgentSpace
 
 def tests_initialisation_d_un_environnement():
-    env = Environment(2,3, 4)
+    env = AgentSpace(2, 3, 4)
 
     assert (
         env.plays == [0, 0]
@@ -24,7 +24,7 @@ def tests_initialisation_d_un_environnement():
 
 def tests_nombre_de_voisins():
     try:
-        Environment(2,4, 4)
+        AgentSpace(2, 4, 4)
         assert False, "Error: n_neighbors must equal n_agents - 1"
     except Exception:
         pass

@@ -1,10 +1,10 @@
 from unittest.mock import MagicMock, patch
 
-from environment import Environment
+from agentSpace import AgentSpace
 from learningAlgo import LearningAlgo
 
 def tests_initialisation_d_un_algo():
-    env = Environment(2,3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
 
     assert (
@@ -23,10 +23,10 @@ def tests_initialisation_d_un_algo():
         learning_algo.algo_name == "TUCB"
     ), "Erreur: le nom de l'algo n'est pas correctement initialisé."
     assert isinstance(
-        learning_algo.env, Environment
+        learning_algo.env, AgentSpace
     ), "Erreur: Le env de l'agent doit être une instance de Environment."
 
-environment = Environment(2,3, 4)
+environment = AgentSpace(2, 3, 4)
 @patch.object(environment, 't', 2)
 def tests_getTUCBActionT():
     learning_algo = LearningAlgo(2, 'TUCB', environment)
@@ -58,7 +58,7 @@ def tests_getTUCBActionPlay1():
     ), "Erreur: l'action pour la 2e itération doit être 1'."
 
 def tests_getAction():
-    env = Environment(2, 3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
 
     learning_algo.getTUCBAction = MagicMock()
@@ -66,7 +66,7 @@ def tests_getAction():
     learning_algo.getTUCBAction.assert_called_once()
 
 def tests_getActionNotCalled():
-    env = Environment(2, 3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'UCB', env)
 
     learning_algo.getTUCBAction = MagicMock()

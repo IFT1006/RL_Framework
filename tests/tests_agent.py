@@ -1,9 +1,9 @@
 from agent import Agent
-from environment import Environment
+from agentSpace import AgentSpace
 from learningAlgo import LearningAlgo
 
 def tests_initialisation_d_un_agent():
-    env = Environment(2,3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
     agent = Agent(env, learning_algo)
 
@@ -11,14 +11,14 @@ def tests_initialisation_d_un_agent():
         agent.cumul_regret == []
     ), "Erreur: la liste de regret n'est pas correctement initialisée"
     assert isinstance(
-        agent.env, Environment
+        agent.env, AgentSpace
     ), "Erreur: Le env de l'agent doit être une instance de Environment."
     assert isinstance(
         agent.learning_algo, LearningAlgo
     ), "Erreur: Le learning_algo de l'agent doit être une instance de LearningAlgo."
 
 def tests_train():
-    env = Environment(2,3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
     agent = Agent(env, learning_algo)
     for i in range(100):
@@ -28,7 +28,7 @@ def tests_train():
     ), "Erreur: Le nombre de fois jouées doit être 100 après 100 runs."
 
 def tests_winrate_premier_index():
-    env = Environment(2, 3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
     agent = Agent(env, learning_algo)
     try:
@@ -38,7 +38,7 @@ def tests_winrate_premier_index():
         pass
 
 def tests_number_neighbor_actions():
-    env = Environment(2, 3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
     agent = Agent(env, learning_algo)
     try:
@@ -48,7 +48,7 @@ def tests_number_neighbor_actions():
         pass
 
 def tests_update():
-    env = Environment(2,3, 4)
+    env = AgentSpace(2, 3, 4)
     learning_algo = LearningAlgo(2, 'TUCB', env)
     agent = Agent(env, learning_algo)
     for i in range(50):
