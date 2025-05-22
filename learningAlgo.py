@@ -48,6 +48,12 @@ class LearningAlgo:
                     elif self.a_space.plays[i] == 1 and self.init_iteration == 1:
                         action = i
                         first_time = True
+                        if i == self.a_space.n_arms - 1:
+                            self.init_iteration += 1
+                        break
+                    elif self.a_space.plays[i] == 2 and self.init_iteration == 2:
+                        action = i
+                        first_time = True
                         break
 
         return {'action': action, 'first_time': first_time }

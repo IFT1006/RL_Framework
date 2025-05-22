@@ -32,3 +32,11 @@ def printProp(prop, show_str):
     plt.figure(figsize=(12, 8))
     plt.plot(prop, label="Agent 2")
     printGraph(show_str, "Proportion of action 2")
+
+def printProp3(action, show_str):
+    plt.figure(figsize=(12, 8))
+    i = 1
+    for a in action:
+        plt.plot(a, label="Action " + str(i))
+        i += 1
+    printGraph(show_str, "Proportion of each action")
