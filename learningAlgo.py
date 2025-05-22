@@ -48,6 +48,7 @@ class LearningAlgo:
 
     def getUCBAction(self):
         first_time = False
+        #TODO: initialisation (boucle de 4 pour initialiser AA AB ... etc.)
         for i in range(self.a_space.n_arms):
             # play arm for the first time
             if self.a_space.plays[i] == 0:

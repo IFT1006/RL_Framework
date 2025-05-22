@@ -34,7 +34,7 @@ class Agent():
                 self.cumul_regret.append(step_regret)
 
     def train(self, neighbor_actions = []):
-        if len(neighbor_actions) != self.a_space.n_neighbors and self.a_space.game == 'Bandit':
+        if len(neighbor_actions) != self.a_space.n_neighbors and self.learning_algo == 'TUCB':
             raise Exception("Error: neighbor actions must have the same number of neighbors")
         self.a_space.t += 1
 

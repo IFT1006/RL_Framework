@@ -21,19 +21,19 @@ class Execute:
     def getPDResult(self):
         experiments = []
         for e in range(0, self.instance):
-            A_PD = np.array([[3, 0],
-                             [5, 1]]).astype(float)
-            B_PD = np.array([[3, 5],
-                             [0, 1]]).astype(float)
+            A_PD = np.array([[0.5, 0],
+                             [1, 0.2]]).astype(float)
+            B_PD = np.array([[0.5, 1],
+                             [0, 0.2]]).astype(float)
             matrices = [A_PD, B_PD]
-            env = EnvPD(matrices, 2)
+            env = EnvPD(matrices, 2, self.algo)
             plays = []
 
             # print to trace the progress
             print(e)
 
             for j in range(0, self.n_agents):
-                a_space = AgentSpace(2, self.n_agents, 'PD')
+                a_space = AgentSpace(len(A_PD), self.n_agents, 'PD')
                 learning_algo = LearningAlgo(self.const, self.algo, a_space)
                 env.ajouter_agents(Agent(a_space, learning_algo))
 
@@ -54,7 +54,7 @@ class Execute:
                     rand_win_rate = np.random.rand(2)
             # print to trace the progress
             print(e)
-            env = EnvBandit(self.n_agents, win_rate if use_rand_win is False else rand_win_rate)
+            env = EnvBandit(self.n_agents, win_rate if use_rand_win is False else rand_win_rate, self.algo)
 
             for i in range(0, self.n_agents):
                 a_space = AgentSpace(len(win_rate), self.n_agents, 'Bandit')

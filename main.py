@@ -23,11 +23,11 @@ def main():
 
     result = Execute(5000, 1000, 2, 2, "UCB").getPDResult()
     prop = np.array(result['prop'])
-    printProps(prop, "Proportion of action 2 played for agent 2 in a Prisoner's Dilemma game UCB")
+    printProp(prop, "Proportion of action2 for agent2 in a Prisoner's Dilemma game UCB [0.5,0.2]")
 
     result = Execute(5000, 1000, 2, 2, "TUCB").getPDResult()
     prop = np.array(result['prop'])
-    printProps(prop, "Proportion of action 2 played for agent 12 in a Prisoner's Dilemma game TUCB")
+    printProp(prop, "Proportion of action2 for agent2 in a Prisoner's Dilemma game TUCB [0.5,0.2]")
 
 if __name__ == '__main__':
     main()

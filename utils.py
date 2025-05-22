@@ -28,7 +28,7 @@ def printRuns(agents, show_str):
         i += 1
     printGraph(show_str, "Cumulative regret")
 
-def printProps(prop, show_str):
+def printProp(prop, show_str):
     plt.figure(figsize=(12, 8))
     plt.plot(prop, label="Agent 1")
     printGraph(show_str, "Proportion of action 2")
