@@ -16,9 +16,41 @@ class LearningAlgo:
         # algorithm name
         self.algo_name = algo_name
         self.a_space = a_space
+        self.init_iteration = 0
 
-    # def getInitialState(self):
-    #
+    def getInitialState(self):
+        first_time = False
+        action = 0
+        if self.a_space.game == "Bandit":
+            for i in range(self.a_space.n_arms):
+                # play arm for the first time
+                if self.a_space.plays[i] == 0:
+                    action = i
+                    first_time = True
+                    break
+        elif self.a_space.game == "PD":
+            # A-A-B-B
+            if self.a_space.a_id == 1:
+                for i in range(self.a_space.n_arms):
+                    if self.a_space.plays[i] < self.a_space.n_arms:
+                        action = i
+                        first_time = True
+                        break
+            # A-B-A-B
+            elif self.a_space.a_id == 2:
+                for i in range(self.a_space.n_arms):
+                    if self.a_space.plays[i] == 0 and self.init_iteration == 0:
+                        action = i
+                        first_time = True
+                        if i == self.a_space.n_arms - 1:
+                            self.init_iteration += 1
+                        break
+                    elif self.a_space.plays[i] == 1 and self.init_iteration == 1:
+                        action = i
+                        first_time = True
+                        break
+
+        return {'action': action, 'first_time': first_time }
 
     def getTUCBAction(self, neighbor_actions):
         # calculate the target play once t > 1
@@ -26,13 +58,9 @@ class LearningAlgo:
             for a in neighbor_actions:
                 self.a_space.target_plays[a] += 1 / self.a_space.n_neighbors
 
-        first_time = False
-        for i in range(self.a_space.n_arms):
-            # play arm for the first time
-            if self.a_space.plays[i] == 0:
-                action = i
-                first_time = True
-                break
+        res = self.getInitialState()
+        first_time = res['first_time']
+        action = res['action']
 
         if not first_time:
             # start the algo once each action is played once
@@ -50,14 +78,9 @@ class LearningAlgo:
         return action
 
     def getUCBAction(self):
-        first_time = False
-        #TODO: initialisation (boucle de 4 pour initialiser AA AB ... etc.)
-        for i in range(self.a_space.n_arms):
-            # play arm for the first time
-            if self.a_space.plays[i] == 0:
-                action = i
-                first_time = True
-                break
+        res = self.getInitialState()
+        first_time = res['first_time']
+        action = res['action']
 
         if not first_time:
             # start the algo once each action is played once

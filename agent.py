@@ -1,6 +1,6 @@
 from agentSpace import AgentSpace
 
-class Agent():
+class Agent:
     def __init__(self, a_space: AgentSpace, algo):
         # cumulative regret
         self.cumul_regret = []

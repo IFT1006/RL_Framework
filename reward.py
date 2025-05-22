@@ -1,6 +1,6 @@
 import numpy as np
 
-class Reward():
+class Reward:
     def __init__(self, win_rate, arm_played):
         # win rate
         self.win_rate = win_rate

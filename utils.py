@@ -18,7 +18,7 @@ def printMean(avg, std, n_agents, n_ins, algo):
     plt.fill_between(x, avg, avg + std, alpha=0.2)
     plt.text(.01, .99, str(n_agents)+' agents;'+' '+str(n_ins)+' instances')
 
-    printGraph("Mean of cumulative Regret of "+algo+" Agent 1 in a Fully Connected Graph", "Cumulative regret")
+    printGraph("Mean of cumulative Regret of "+algo+" Agent1 in a Fully Connected Graph", "Cumulative regret")
 
 def printRuns(agents, show_str):
     plt.figure(figsize=(12, 8))
@@ -30,5 +30,5 @@ def printRuns(agents, show_str):
 
 def printProp(prop, show_str):
     plt.figure(figsize=(12, 8))
-    plt.plot(prop, label="Agent 1")
+    plt.plot(prop, label="Agent 2")
     printGraph(show_str, "Proportion of action 2")

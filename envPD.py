@@ -22,8 +22,8 @@ class EnvPD(Environnement):
         return {'a1': action1, 'a2': action2}
 
     def updateStep(self, a1, a2):
-        self.agents[0].update(a1, self.matrice_jouer_A[a1, a2] + np.random.normal(0., 2))
-        self.agents[1].update(a2, self.matrice_jouer_B[a1, a2] + np.random.normal(0., 2))
+        self.agents[0].update(a1, self.matrice_jouer_A[a1, a2] + np.random.normal(0., 0.3))
+        self.agents[1].update(a2, self.matrice_jouer_B[a1, a2] + np.random.normal(0., 0.3))
 
     def step(self):
         if self.algo == 'UCB':

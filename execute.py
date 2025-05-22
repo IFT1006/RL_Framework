@@ -33,7 +33,7 @@ class Execute:
             print(e)
 
             for j in range(0, self.n_agents):
-                a_space = AgentSpace(len(A_PD), self.n_agents, 'PD')
+                a_space = AgentSpace(len(A_PD), self.n_agents, 'PD', j+1)
                 learning_algo = LearningAlgo(self.const, self.algo, a_space)
                 env.ajouter_agents(Agent(a_space, learning_algo))
 
@@ -57,7 +57,7 @@ class Execute:
             env = EnvBandit(self.n_agents, win_rate if use_rand_win is False else rand_win_rate, self.algo)
 
             for i in range(0, self.n_agents):
-                a_space = AgentSpace(len(win_rate), self.n_agents, 'Bandit')
+                a_space = AgentSpace(len(win_rate), self.n_agents, 'Bandit', i+1)
                 learning_algo = LearningAlgo(self.const, self.algo, a_space)
                 env.ajouter_agents(Agent(a_space, learning_algo))
 
