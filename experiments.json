@@ -1,0 +1,35 @@
+{
+  "bandit": [
+    {
+      "horizon": 300,
+      "rounds": 1000,
+      "n_agents": 4,
+      "noise_std": 1.5,
+      "win_rate": [0.5, 0.4],
+      "use_noise": false,
+      "algo": "TUCB",
+      "title": "4 TUCB Agents – Fully Connected"
+    },
+    {
+      "horizon": 500,
+      "rounds": 1000,
+      "n_agents": 11,
+      "noise_std": 1.5,
+      "win_rate": [0.5, 0.4],
+      "use_noise": false,
+      "algo": "TUCB",
+      "title": "11 TUCB Agents"
+    }
+  ],
+  "pd": [
+    {
+      "horizon": 5000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "noise_std": 2.0,
+      "matrices": [[[0.5,0],[1,0.2]], [[0.5,1],[0,0.2]]],
+      "algos": ["UCB","UCB"],
+      "title": "PD UCB vs UCB"
+    }
+  ]
+}
