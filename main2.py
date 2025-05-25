@@ -17,6 +17,8 @@ def load_configs(path):
     return data.get("bandit", []), data.get("pd", [])
 
 def run_bandit_experiments(configs):
+
+    # Julien: À modifier car ça ne marche pas
     for cfg in configs:
         res = Execute(
             cfg["horizon"], cfg["rounds"],
@@ -31,15 +33,23 @@ def run_bandit_experiments(configs):
 
 def run_pd_experiments(configs):
     for cfg in configs:
+        # 1) reconstruire les matrices
+        matrices = [np.array(m) for m in cfg["matrices"]]
+        # 2) extraire la config de bruit
+        dist   = cfg.get("noise_dist",   "uniform")
+        params = tuple(cfg.get("noise_params", (0.0, 0.05)))
+        # 3) lancer l'expérience
         res = Execute(
             cfg["horizon"], cfg["rounds"],
-            cfg["n_agents"], cfg["noise_std"]
+            cfg["n_agents"], cfg["const"]
         ).getPDResult(
-            [np.array(m) for m in cfg["matrices"]],
-            cfg["algos"]
+            matrices,
+            cfg["algos"],
+            noise_dist=dist,
+            noise_params=params
         )
-        prop = np.array(res["prop"])
-        printProp3(prop, cfg["title"])
+        # 4) afficher
+        #printProp3(np.array(res["prop"]), cfg["title"])
 
 def main():
     p = argparse.ArgumentParser()
@@ -48,30 +58,27 @@ def main():
         help="Chemin vers le JSON d’expériences"
     )
     p.add_argument(
-        "--which", choices=["bandit","pd","all"], default="all",
-        help="Type d’expériences à lancer"
-    )
-    p.add_argument(
-        "--exp-id", type=int, default=None,
-        help="(optionnel) index 0‑based de l’expérience bandit à ne lancer que celle‑ci"
+        "--exp-name", "-n", type=str, default=None,
+        help="(optionnel) nom de l’expérience PD à lancer"
     )
     args = p.parse_args()
 
-    bandit_configs, pd_configs = load_configs(args.config)
+    # on ne récupère que les configs PD
+    _, pd_configs = load_configs(args.config)
 
-    if args.which in ("bandit","all"):
-        # si exp-id fourni, on ne garde que cet index pour bandit
-        to_run = (
-            [bandit_configs[args.exp_id]]
-            if args.exp_id is not None
-            else bandit_configs
-        )
-        print(f"→ Lancement de {len(to_run)} expérience(s) Bandit …")
-        run_bandit_experiments(to_run)
+    # si on précise un exp-name, on filtre
+    if args.exp_name:
+        pd_configs = [
+            cfg for cfg in pd_configs
+            if cfg.get("title") == args.exp_name
+        ]
+        if not pd_configs:
+            raise ValueError(
+                f"Aucune expérience PD nommée '{args.exp_name}' dans {args.config}"
+            )
 
-    if args.which in ("pd","all"):
-        print(f"→ Lancement de {len(pd_configs)} expérience(s) PD …")
-        run_pd_experiments(pd_configs)
+    print(f"→ Lancement de {len(pd_configs)} expérience(s) PD …")
+    run_pd_experiments(pd_configs)
 
 if __name__ == "__main__":
     main()

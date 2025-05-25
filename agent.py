@@ -2,9 +2,9 @@ from agentSpace import AgentSpace
 
 class Agent:
     def __init__(self, a_space: AgentSpace, algo):
-        # cumulative regret
         self.cumul_regret = []
-        # learning algo to use
+        self.cumul_reward = []
+        self.reward = []
         self.learning_algo = algo
         self.a_space = a_space
 
@@ -32,6 +32,13 @@ class Agent:
                 self.cumul_regret.append(self.cumul_regret[-1] + step_regret)
             else:
                 self.cumul_regret.append(step_regret)
+
+        if self.a_space.game == 'PD':
+            if len(self.cumul_reward) > 1:
+                self.cumul_reward.append(self.cumul_reward[-1] + step_reward)
+            else:
+                self.cumul_reward.append(step_reward)
+            self.reward.append(step_reward)
 
     def train(self, neighbor_actions = []):
         if len(neighbor_actions) != self.a_space.n_neighbors and self.learning_algo.algo_name == 'TUCB':
