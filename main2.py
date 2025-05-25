@@ -3,6 +3,7 @@ import argparse
 from execute import Execute
 from utils import *
 import numpy as np
+from tqdm import tqdm
 
 def load_configs(path):
     # Determine absolute path of your script’s directory
@@ -32,7 +33,7 @@ def run_bandit_experiments(configs):
         printRuns(res["agents"], cfg["title"])
 
 def run_pd_experiments(configs):
-    for cfg in configs:
+    for cfg in tqdm(configs):
         # 1) reconstruire les matrices
         matrices = [np.array(m) for m in cfg["matrices"]]
         # 2) extraire la config de bruit
@@ -48,7 +49,7 @@ def run_pd_experiments(configs):
             noise_dist=dist,
             noise_params=params
         )
-        print(res)
+        plot_mean_std(res, cfg["title"])
         # 4) afficher
         #printProp3(np.array(res["prop"]), cfg["title"])
 

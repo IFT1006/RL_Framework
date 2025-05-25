@@ -10,11 +10,22 @@ def normalizeMatrix(matrix, etendue):
     matrix_norm_noise = matrix_norm*(1-etendue)+etendue/2
     return matrix_norm_noise
 
-def figure(dataframe):
-    pyplot.plot(timehorizon, avg, label=config)
-    pyplot.fill_between(timehorizon, avg, avg+std, alpha=0.4)
-    pyplot.legend()
+def plot_mean_std(df,title, agent=0, label=None):
 
+    time  = df['step']
+    mean  = df[f'mean_cum_regret_agent_{agent}']
+    std   = df[f'std_cum_regret_agent_{agent}']
+    lbl   = label or f'Agent {agent}'
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.plot(time, mean, label=lbl)
+    ax.fill_between(time, mean, mean + std, alpha=0.3)
+    ax.set_xlabel('Step')
+    ax.set_ylabel('Mean cumul regret')
+    ax.legend()
+
+    fig.savefig(f'Workshop/Figure/{title}_agent_0.pdf',format='pdf', dpi=300, bbox_inches='tight')
+    plt.close(fig)
 
 
 

@@ -55,12 +55,12 @@ class LearningAlgo:
             target_opt = np.sqrt(((self.a_space.target_plays - self.a_space.plays) / self.a_space.target_plays).clip(min=0))
             action_val = self.a_space.avg_reward + est_opt * target_opt
 
-            best = np.flatnonzero(np.isclose(action_val, action_val.max()))
+            best = np.flatnonzero(action_val == action_val.max())
             if best.size == 1:
                 action = int(best[0])
             else:
-                print("Tie_TUCB")
-                print('action_val', action_val)
+                #print("Tie_TUCB")
+                #print('action_val', action_val)
                 action = int(np.random.choice(best))
         return action
 
@@ -72,12 +72,12 @@ class LearningAlgo:
             est_opt = np.sqrt(self.constant * np.log(self.a_space.t) / self.a_space.plays)
             action_val = self.a_space.avg_reward + est_opt
 
-            best = np.flatnonzero(np.isclose(action_val, action_val.max()))
+            best = np.flatnonzero(action_val == action_val.max())
             if best.size == 1:
                 action = int(best[0])
             else:
-                print("Tie_UCB")
-                print('action_val', action_val)
+                #print("Tie_UCB")
+                #print('action_val', action_val)
                 action = int(np.random.choice(best))
         return action
     
@@ -93,12 +93,12 @@ class LearningAlgo:
             var_post = 1 / (1 / var_0 + self.a_space.plays / var)
             samples = np.random.normal(mu_post, np.sqrt(var_post))
 
-            best = np.flatnonzero(np.isclose(samples, samples.max()))
+            best = np.flatnonzero(samples == samples.max())
             if best.size == 1:
                 action = int(best[0])
             else:
-                print("Tie_TS")
-                print('samples', samples)
+                #print("Tie_TS")
+                #print('samples', samples)
                 action = int(np.random.choice(best))
         return action
 
