@@ -31,6 +31,7 @@ class Execute:
             print(actions)
             plays.append(actions)
 
+        # Il faudrait enlever cumul_reward et le calucler ailleurs
         cumul_rewards = [env.agents[k].cumul_reward for k in range(self.n_agents)]
         rewards = [env.agents[k].reward for k in range(self.n_agents)]
 
@@ -52,10 +53,20 @@ class Execute:
             experiments_rewards.append(rewards)
 
         # Enregistrement des résultats dans un Dataframe à faire
+        actions = np.array(plays)
+        rewards = np.array(experiments_rewards).T
+        cum_rewards = np.array(experiments_rewards_cumul).T
 
-        return {'plays': plays, 
-                'experiments_rewards_cumul': np.mean(np.array(experiments_rewards_cumul),axis=0), 
-                'experiments_rewards': np.mean(np.array(experiments_rewards),axis=0)}
+        df = pd.DataFrame()
+        for i in range(self.n_agents):
+            df[f'action_agent_{i}']      = actions[:, i]
+        for i in range(self.n_agents):
+            df[f'reward_agent_{i}']      = rewards[:, i]
+        for i in range(self.n_agents):
+            df[f'cum_reward_agent_{i}']  = cum_rewards[:, i]
+        df.to_csv('results.csv', index=False)
+
+        return df
 
     def getBanditResult(self, win_rate, use_rand_win, algo):
 
