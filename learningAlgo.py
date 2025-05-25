@@ -48,35 +48,27 @@ class LearningAlgo:
             for a in neighbor_actions:
                 self.a_space.target_plays[a] += 1 / self.a_space.n_neighbors
 
-        if not first_time:
+        if not first_time:            
             # start the algo after initialization
-            action_val = [0]* self.a_space.n_arms
-            for i in range(self.a_space.n_arms):
-                est_opt = np.sqrt(self.constant * np.log(self.a_space.t) / self.a_space.plays[i])
-                target_opt = np.sqrt((self.a_space.target_plays[i] - self.a_space.plays[i]) / self.a_space.target_plays[i]) if (
-                            (self.a_space.target_plays[i] - self.a_space.plays[i]) > 0) else 0
-                action_val[i] = self.a_space.avg_reward[i] + est_opt * target_opt
+            action_val = np.zeros(self.a_space.n_arms)
+            est_opt = np.sqrt(self.constant * np.log(self.a_space.t) / self.a_space.plays)
+            target_opt = np.sqrt(((self.a_space.target_plays - self.a_space.plays) / self.a_space.target_plays).clip(min=0))
+            action_val = self.a_space.avg_reward + est_opt * target_opt
 
-            if len(set(action_val)) > 1:
-                action = np.argmax(action_val)
-            else:
-                # tie breaker
-                action = random.choice([0, self.a_space.n_arms - 1])
+            best = np.flatnonzero(np.isclose(action_val, action_val.max()))
+            action = np.random.choice(best)
         return action
 
     def getUCBAction(self, first_time, action):
         if not first_time:
-            # start the algo after initialization
-            action_val = [0]* self.a_space.n_arms
-            for i in range(self.a_space.n_arms):
-                est_opt = np.sqrt(self.constant * np.log(self.a_space.t) / self.a_space.plays[i])
-                action_val[i] = self.a_space.avg_reward[i] + est_opt
 
-            if len(set(action_val)) > 1:
-                action = np.argmax(action_val)
-            else:
-                # tie breaker
-                action = random.choice([0, self.a_space.n_arms - 1])
+            # start the algo after initialization
+            action_val = np.zeros(self.a_space.n_arms)
+            est_opt = np.sqrt(self.constant * np.log(self.a_space.t) / self.a_space.plays)
+            action_val = self.a_space.avg_reward + est_opt
+
+            best = np.flatnonzero(np.isclose(action_val, action_val.max()))
+            action = np.random.choice(best)
         return action
 
     def getAction(self, neighbor_actions):
