@@ -7,6 +7,7 @@ from learningAlgo import LearningAlgo
 from agent import Agent
 from envPD import EnvPD
 from envBandit import EnvBandit
+from utils import normalizeMatrix
 
 class Execute:
     def __init__(self, n_instance, n_runs, n_agents, const):
@@ -36,13 +37,15 @@ class Execute:
     
 
     def getPDResult(self, matrices, algo, noise_dist='uniform', noise_params=(0.0, 0.05)):
+        # Normalisation de matrices
+        matrices_norm = [normalizeMatrix(mat,0) for mat in matrices]
 
         # Boucle sur les itérations
         experiments = []
         experiments_rewards_cumul = []
         experiments_rewards = []
         for _ in tqdm(range(0, self.n_instance)):
-            plays, cumul_rewards, rewards = self.runOnePDExperiment(matrices, algo, noise_dist, noise_params)
+            plays, cumul_rewards, rewards = self.runOnePDExperiment(matrices_norm, algo, noise_dist, noise_params)
             experiments.append(plays)
             experiments_rewards_cumul.append(cumul_rewards)
             experiments_rewards.append(rewards)
