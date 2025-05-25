@@ -1,14 +1,14 @@
 {
   "pd": [
     {
-      "horizon": 5, 
-      "rounds": 3,
+      "horizon": 50, 
+      "rounds": 1,
       "n_agents": 2,
-      "const" : 2, 
+      "const" : [2,1], 
       "noise_dist": "normal",
-      "noise_params": [0.0, 1],
-      "matrices": [[[0.5,0],[1,0.2]], [[0.5,1],[0,0.2]]],
-      "algos": ["UCB","UCB"],
+      "noise_params": [0.0, 0.001],
+      "matrices": [[[1, 0, 0.5],[0, 1, 0.5],[0.5, 0.5, 0.5]], [[1, 0, 0.5],[0, 1, 0.5],[0.5, 0.5, 0.5]]],
+      "algos": ["UCB","TS"],
       "title": "PD_UCB_UCB_N_1"
     }
   ]

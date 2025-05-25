@@ -80,6 +80,27 @@ class LearningAlgo:
                 print('action_val', action_val)
                 action = int(np.random.choice(best))
         return action
+    
+    def getTSAction(self, first_time, action):
+
+        # Mettre self. quand on va diviser les algos
+        mu_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
+        var_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
+        var = max(self.constant, 1e-2)
+
+        if not first_time:
+            mu_post = (mu_0/var_0 + self.a_space.sums/var) / (1/var_0 + self.a_space.plays/var)
+            var_post = 1 / (1 / var_0 + self.a_space.plays / var)
+            samples = np.random.normal(mu_post, np.sqrt(var_post))
+
+            best = np.flatnonzero(np.isclose(samples, samples.max()))
+            if best.size == 1:
+                action = int(best[0])
+            else:
+                print("Tie_TS")
+                print('samples', samples)
+                action = int(np.random.choice(best))
+        return action
 
     def getAction(self, neighbor_actions):
         res = self.getInitialState()
@@ -91,5 +112,7 @@ class LearningAlgo:
                 return self.getTUCBAction(neighbor_actions, first_time, action)
             case "UCB":
                 return self.getUCBAction(first_time, action)
+            case "TS":
+                return self.getTSAction(first_time, action)
             case _:
                 return None

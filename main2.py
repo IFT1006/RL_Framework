@@ -40,7 +40,7 @@ def run_pd_experiments(configs):
         params = tuple(cfg.get("noise_params"))
         # 3) lancer l'expérience
         res = Execute(
-            cfg["horizon"], cfg["rounds"],
+            cfg["rounds"], cfg["horizon"],
             cfg["n_agents"], cfg["const"], cfg["title"]
         ).getPDResult(
             matrices,

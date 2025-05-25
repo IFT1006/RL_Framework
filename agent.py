@@ -1,31 +1,30 @@
+import numpy as np
 from agentSpace import AgentSpace
 
 class Agent:
     def __init__(self, a_space: AgentSpace, algo):
+
+        self.learning_algo = algo
+        self.a_space = a_space
         self.cumul_regret = []
         self.cumul_reward = []
         self.reward = []
-        self.learning_algo = algo
-        self.a_space = a_space
 
     def update(self, action, step_reward, win_rate=[]):
         if len(win_rate) == 0  and self.a_space.game == 'Bandit':
             raise Exception("Error: must provide a win rate for the Bandit game!")
 
-        if action == 0:
-            self.a_space.plays[0] += 1
-            self.a_space.avg_reward[0] += (step_reward - self.a_space.avg_reward[0]) / self.a_space.plays[0]
-            # no added regret since arm 0 is optimal
-            if self.a_space.game == 'Bandit':
-                step_regret = 0
-        else:
-            for i in range(1, self.a_space.n_arms):
-                if action == i:
-                    self.a_space.plays[i] += 1
-                    self.a_space.avg_reward[i] += (step_reward - self.a_space.avg_reward[i]) / self.a_space.plays[i]
+        self.a_space.plays[action] += 1
+        self.a_space.sums[action] += step_reward
+        self.a_space.avg_reward = np.divide(
+            self.a_space.sums,
+            self.a_space.plays,
+            out=np.zeros_like(self.a_space.sums, dtype=float),
+            where=self.a_space.plays != 0
+        )
 
-                    if self.a_space.game == 'Bandit':
-                        step_regret = win_rate[0] - win_rate[i]
+        if self.a_space.game == 'Bandit':
+            step_regret = max(win_rate) - win_rate[action]
 
         if self.a_space.game == 'Bandit':
             if self.a_space.t > 1:
