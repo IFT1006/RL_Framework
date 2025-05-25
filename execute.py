@@ -10,11 +10,12 @@ from envBandit import EnvBandit
 from utils import normalizeMatrix
 
 class Execute:
-    def __init__(self, n_instance, T, n_agents, const):
+    def __init__(self, n_instance, T, n_agents, const, title):
         self.n_instance = n_instance
         self.T = T
         self.n_agents = n_agents
         self.const = const
+        self.title = title # Julien pt changer ça
 
     def runOnePDExperiment(self, matrices, algo, noise_dist='uniform', noise_params=(0.0, 0.05)):
 
@@ -32,10 +33,11 @@ class Execute:
             plays.append(actions)
 
         # Il faudrait enlever cumul_reward et le calucler ailleurs
+        actions_played = [[i[0] for i in plays],[i[1] for i in plays]]
         cumul_rewards = [env.agents[k].cumul_reward for k in range(self.n_agents)]
         rewards = [env.agents[k].reward for k in range(self.n_agents)]
 
-        return plays, cumul_rewards, rewards
+        return actions_played, cumul_rewards, rewards
     
 
     def getPDResult(self, matrices, algo, noise_dist='uniform', noise_params=(0.0, 0.05)):
@@ -43,28 +45,16 @@ class Execute:
         matrices_norm = [normalizeMatrix(mat,0) for mat in matrices]
 
         # Boucle sur les itérations
-        experiments = []
-        experiments_rewards_cumul = []
-        experiments_rewards = []
-        for _ in tqdm(range(0, self.n_instance)):
-            plays, cumul_rewards, rewards = self.runOnePDExperiment(matrices_norm, algo, noise_dist, noise_params)
-            experiments.append(plays)
-            experiments_rewards_cumul.append(cumul_rewards)
-            experiments_rewards.append(rewards)
-
-        # Enregistrement des résultats dans un Dataframe à faire
-        actions = np.array(plays)
-        rewards = np.array(experiments_rewards).T
-        cum_rewards = np.array(experiments_rewards_cumul).T
-
         df = pd.DataFrame()
-        for i in range(self.n_agents):
-            df[f'action_agent_{i}']      = actions[:, i]
-        for i in range(self.n_agents):
-            df[f'reward_agent_{i}']      = rewards[:, i]
-        for i in range(self.n_agents):
-            df[f'cum_reward_agent_{i}']  = cum_rewards[:, i]
-        df.to_csv('results.csv', index=False)
+        for realisation in tqdm(range(0, self.n_instance)):
+            plays, cumul_rewards, rewards = self.runOnePDExperiment(matrices_norm, algo, noise_dist, noise_params)
+
+            # Enregistrement des résultats dans un Dataframe à faire
+            for i in range(self.n_agents):
+                df[f'action_agent_{i}_{algo[i]}_{realisation}'] = np.array(plays).T[:, i]
+                df[f'reward_agent_{i}_{algo[i]}_{realisation}'] = np.array(cumul_rewards).T[:, i]
+                df[f'cum_reward_agent_{i}_{algo[i]}_{realisation}'] = np.array(rewards).T[:, i]
+        df.to_csv(f'Workshop/Data/{self.title}.csv', index=False)
 
         return df
 

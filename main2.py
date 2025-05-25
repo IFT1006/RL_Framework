@@ -41,7 +41,7 @@ def run_pd_experiments(configs):
         # 3) lancer l'expérience
         res = Execute(
             cfg["horizon"], cfg["rounds"],
-            cfg["n_agents"], cfg["const"]
+            cfg["n_agents"], cfg["const"], cfg["title"]
         ).getPDResult(
             matrices,
             cfg["algos"],

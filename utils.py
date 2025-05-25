@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# À recommencer
+
 def normalizeMatrix(matrix, etendue):
     # Normalisation for [0,1]
     matrix_norm = (matrix-np.min(matrix))/np.ptp(matrix)
@@ -9,6 +9,19 @@ def normalizeMatrix(matrix, etendue):
     # Normalisation considering the noise
     matrix_norm_noise = matrix_norm*(1-etendue)+etendue/2
     return matrix_norm_noise
+
+def figure(dataframe):
+    pyplot.plot(timehorizon, avg, label=config)
+    pyplot.fill_between(timehorizon, avg, avg+std, alpha=0.4)
+    pyplot.legend()
+
+
+
+
+
+
+
+
 
 def printGraph(str, ylabel):
     plt.xlabel("Plays", fontsize=14)
@@ -49,3 +62,4 @@ def printProp3(action, show_str):
         plt.plot(a, label="Action " + str(i))
         i += 1
     printGraph(show_str, "Proportion of each action")
+
