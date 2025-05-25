@@ -31,4 +31,4 @@ class EnvPD(Environnement):
         action1, action2 = self.agents[0].train([self.actions[1]]), self.agents[1].train([self.actions[0]])
         self.actions[0], self.actions[1] = action1, action2
         self.updateStep(action1, action2)
-        return {'a1': action1, 'a2': action2}
+        return [action1, action2]

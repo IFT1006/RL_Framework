@@ -1,12 +1,12 @@
 {
   "pd": [
     {
-      "horizon": 50,
-      "rounds": 100,
+      "horizon": 1, 
+      "rounds": 10,
       "n_agents": 2,
       "const" : 2, 
       "noise_dist": "normal",
-      "noise_param": [0.0, 0.1],
+      "noise_params": [0.0, 1],
       "matrices": [[[0.5,0],[1,0.2]], [[0.5,1],[0,0.2]]],
       "algos": ["UCB","UCB"],
       "title": "PD UCB vs UCB"

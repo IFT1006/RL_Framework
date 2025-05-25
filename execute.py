@@ -10,9 +10,9 @@ from envBandit import EnvBandit
 from utils import normalizeMatrix
 
 class Execute:
-    def __init__(self, n_instance, n_runs, n_agents, const):
+    def __init__(self, n_instance, T, n_agents, const):
         self.n_instance = n_instance
-        self.n_runs = n_runs
+        self.T = T
         self.n_agents = n_agents
         self.const = const
 
@@ -26,9 +26,10 @@ class Execute:
             env.ajouter_agents(Agent(a_space, learning_algo))
         
         plays = []
-        for time_step in range(0, self.n_runs):
+        for time_step in range(0, self.T):
             actions = env.step()
-            plays.append([actions[f'a{k+1}'] for k in range(self.n_agents)])
+            print(actions)
+            plays.append(actions)
 
         cumul_rewards = [env.agents[k].cumul_reward for k in range(self.n_agents)]
         rewards = [env.agents[k].reward for k in range(self.n_agents)]
@@ -75,7 +76,7 @@ class Execute:
                 learning_algo = LearningAlgo(self.const, algo, a_space)
                 env.ajouter_agents(Agent(a_space, learning_algo))
 
-            for t in range(0, self.n_runs):
+            for t in range(0, self.T):
                 env.step()
 
             experiments.append(env.agents[0].cumul_regret)

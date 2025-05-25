@@ -56,7 +56,12 @@ class LearningAlgo:
             action_val = self.a_space.avg_reward + est_opt * target_opt
 
             best = np.flatnonzero(np.isclose(action_val, action_val.max()))
-            action = np.random.choice(best)
+            if best.size == 1:
+                action = int(best[0])
+            else:
+                print("Tie_TUCB")
+                print('action_val', action_val)
+                action = int(np.random.choice(best))
         return action
 
     def getUCBAction(self, first_time, action):
@@ -68,7 +73,12 @@ class LearningAlgo:
             action_val = self.a_space.avg_reward + est_opt
 
             best = np.flatnonzero(np.isclose(action_val, action_val.max()))
-            action = np.random.choice(best)
+            if best.size == 1:
+                action = int(best[0])
+            else:
+                print("Tie_UCB")
+                print('action_val', action_val)
+                action = int(np.random.choice(best))
         return action
 
     def getAction(self, neighbor_actions):

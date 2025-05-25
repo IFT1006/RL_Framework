@@ -18,7 +18,7 @@ def load_configs(path):
 
 def run_bandit_experiments(configs):
 
-    # Julien: À modifier car ça ne marche pas
+    # Julien: À modifier car ça ne marche probablement plus
     for cfg in configs:
         res = Execute(
             cfg["horizon"], cfg["rounds"],
@@ -37,7 +37,7 @@ def run_pd_experiments(configs):
         matrices = [np.array(m) for m in cfg["matrices"]]
         # 2) extraire la config de bruit
         dist   = cfg.get("noise_dist",   "uniform")
-        params = tuple(cfg.get("noise_params", (0.0, 0.05)))
+        params = tuple(cfg.get("noise_params"))
         # 3) lancer l'expérience
         res = Execute(
             cfg["horizon"], cfg["rounds"],
@@ -48,6 +48,7 @@ def run_pd_experiments(configs):
             noise_dist=dist,
             noise_params=params
         )
+        print(res)
         # 4) afficher
         #printProp3(np.array(res["prop"]), cfg["title"])
 
