@@ -14,7 +14,7 @@ df = pd.read_csv(csv_path)
 
 # 2) Choix des paramètres des courbes
 plt.rcParams.update({
-    "text.usetex":        True,               
+    "text.usetex":        False,
     "font.family":        "serif",            
     "font.serif":         ["Times New Roman"],
     "figure.dpi":         300,                

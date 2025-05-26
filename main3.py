@@ -33,7 +33,7 @@ matrices_dict = {
 }
 
 
-algos = ["UCB", "TUCB", "TS"]
+algos = ["UCB", "TUCB", "TS", "KLUCB", "EpsilonGreedy", "Exp3"]
 # constantes associées
 algo_consts = {"UCB": 2, "TUCB": 1.5, "TS": 1}
 noise_choices = [0, 0.1, 1]

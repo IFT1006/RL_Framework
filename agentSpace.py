@@ -12,3 +12,5 @@ class AgentSpace:
         self.n_neighbors = n_agents - 1
         self.game = game
         self.a_id = a_id
+        self.weight = np.ones(n_arms)
+        self.hist_probas = np.zeros(n_arms)

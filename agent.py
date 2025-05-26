@@ -1,4 +1,5 @@
 import numpy as np
+import math
 from agentSpace import AgentSpace
 
 class Agent:
@@ -22,6 +23,11 @@ class Agent:
             out=np.zeros_like(self.a_space.sums, dtype=float),
             where=self.a_space.plays != 0
         )
+        if self.learning_algo.algo_name == 'Exp3':
+            p = self.a_space.hist_probas[-1] if action == 0 else 1 - self.a_space.hist_probas[-1]
+            self.a_space.weight[action] *= math.exp(self.learning_algo.constant * step_reward / (self.a_space.n_arms * p))
+            # normalisation
+            s = sum(self.a_space.weight); self.a_space.weight[0] /= s; self.a_space.weight[1] /= s
 
         if self.a_space.game == 'Bandit':
             step_regret = max(win_rate) - win_rate[action]
