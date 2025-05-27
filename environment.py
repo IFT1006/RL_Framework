@@ -11,12 +11,9 @@ class Environnement:
         self.agents.append(agent)
 
     def sample_noise(self):
-        if self.noise_dist == 'uniform':
-            # TODO - est-ce que le noise_params (le 0, 0.1, 1) est utilisé ici ou plutôt dans les algos TS et KLUCB?
-            low, high = self.noise_params
-            return np.random.uniform(low, high)
-        elif self.noise_dist == 'normal':
-            mean, std = self.noise_params
+        if self.noise_dist == 'normal':
+            mean, var = self.noise_params
+            std = np.sqrt(var)
             return np.random.normal(mean, std)
         else:
             raise ValueError(f"Unknown noise distribution: {self.noise_dist}")
@@ -24,8 +21,14 @@ class Environnement:
     def updateStep(self, a1, a2):
         r1 = self.matrices[0][a1, a2] + self.sample_noise()
         r2 = self.matrices[1][a1, a2] + self.sample_noise()
-        self.agents[0].update(a1, r1)
-        self.agents[1].update(a2, r2)
+
+        min_matrix = np.minimum(self.matrices[0], self.matrices[1])
+        max_val = np.max(min_matrix)
+        regret_matrix = max_val - min_matrix
+        regret = regret_matrix[a1, a2]
+
+        self.agents[0].update(a1, r1, regret)
+        self.agents[1].update(a2, r2, regret)
 
     def step(self):
         action1, action2 = self.agents[0].train(), self.agents[1].train()

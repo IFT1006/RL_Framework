@@ -6,12 +6,12 @@ class Agent:
 
         self.learning_algo = algo
         self.a_space = a_space
-        self.cumul_regret = []
-        # TODO: on a besoin d'afficher les rewards? Selon Audrey les regrets sont plus pertinent?
-        self.cumul_reward = []
+        self.regret = []
+        # # TODO: on a besoin d'afficher les rewards? Selon Audrey les regrets sont plus pertinent?
+        # self.cumul_reward = []
         self.reward = []
 
-    def update(self, action, step_reward):
+    def update(self, action, step_reward, step_regret):
         self.a_space.plays[action] += 1
         self.a_space.sums[action] += step_reward
         self.a_space.avg_reward = np.divide(
@@ -20,11 +20,12 @@ class Agent:
             out=np.zeros_like(self.a_space.sums, dtype=float),
             where=self.a_space.plays != 0
         )
-        # TODO - ajouter le regret ici
-        if len(self.cumul_reward) > 1:
-            self.cumul_reward.append(self.cumul_reward[-1] + step_reward)
-        else:
-            self.cumul_reward.append(step_reward)
+        self.regret.append(step_regret)
+
+        # if len(self.cumul_reward) > 1:
+        #     self.cumul_reward.append(self.cumul_reward[-1] + step_reward)
+        # else:
+        #     self.cumul_reward.append(step_reward)
         self.reward.append(step_reward)
 
     def train(self):

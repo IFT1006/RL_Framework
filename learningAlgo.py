@@ -36,7 +36,7 @@ class LearningAlgo:
         # Mettre self. quand on va diviser les algos
         mu_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
         var_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
-        var = max(self.noise_param, 1e-2)
+        var = max(self.noise_param + .5, 1e-2)
 
         if not first_time:
             mu_post = (mu_0/var_0 + self.a_space.sums/var) / (1/var_0 + self.a_space.plays/var)
