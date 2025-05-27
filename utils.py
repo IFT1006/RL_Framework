@@ -1,12 +1,38 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def normalizeMatrix(matrix, etendue):
     # Normalisation for [0,1]
-    matrix_norm = (matrix-np.min(matrix))/(np.max(matrix)-np.min(matrix))
+    matrix_norm = (matrix-np.min(matrix))/np.ptp(matrix)
+ 
     # Normalisation considering the noise
     matrix_norm_noise = matrix_norm*(1-etendue)+etendue/2
     return matrix_norm_noise
+
+def plot_mean_std(df,title, agent=0, label=None):
+
+    time  = df['step']
+    mean  = df[f'mean_cum_regret_agent_{agent}']
+    std   = df[f'std_cum_regret_agent_{agent}']
+    lbl   = label or f'Agent {agent}'
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.plot(time, mean, label=lbl)
+    ax.fill_between(time, mean, mean + std, alpha=0.3)
+    ax.set_xlabel('Step')
+    ax.set_ylabel('Mean cumul regret')
+    ax.legend()
+
+    fig.savefig(f'Workshop/Figure/{title}_agent_0.pdf',format='pdf', dpi=300, bbox_inches='tight')
+    plt.close(fig)
+
+
+
+
+
+
+
 
 def printGraph(str, ylabel):
     plt.xlabel("Plays", fontsize=14)
@@ -47,3 +73,4 @@ def printProp3(action, show_str):
         plt.plot(a, label="Action " + str(i))
         i += 1
     printGraph(show_str, "Proportion of each action")
+

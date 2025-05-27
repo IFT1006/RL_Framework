@@ -1,37 +1,49 @@
+import numpy as np
+import math
 from agentSpace import AgentSpace
 
 class Agent:
     def __init__(self, a_space: AgentSpace, algo):
-        # cumulative regret
-        self.cumul_regret = []
-        # learning algo to use
+
         self.learning_algo = algo
         self.a_space = a_space
+        self.cumul_regret = []
+        self.cumul_reward = []
+        self.reward = []
 
     def update(self, action, step_reward, win_rate=[]):
         if len(win_rate) == 0  and self.a_space.game == 'Bandit':
             raise Exception("Error: must provide a win rate for the Bandit game!")
 
-        if action == 0:
-            self.a_space.plays[0] += 1
-            self.a_space.avg_reward[0] += (step_reward - self.a_space.avg_reward[0]) / self.a_space.plays[0]
-            # no added regret since arm 0 is optimal
-            if self.a_space.game == 'Bandit':
-                step_regret = 0
-        else:
-            for i in range(1, self.a_space.n_arms):
-                if action == i:
-                    self.a_space.plays[i] += 1
-                    self.a_space.avg_reward[i] += (step_reward - self.a_space.avg_reward[i]) / self.a_space.plays[i]
+        self.a_space.plays[action] += 1
+        self.a_space.sums[action] += step_reward
+        self.a_space.avg_reward = np.divide(
+            self.a_space.sums,
+            self.a_space.plays,
+            out=np.zeros_like(self.a_space.sums, dtype=float),
+            where=self.a_space.plays != 0
+        )
+        if self.learning_algo.algo_name == 'Exp3':
+            p = self.a_space.hist_probas[-1] if action == 0 else 1 - self.a_space.hist_probas[-1]
+            self.a_space.weight[action] *= math.exp(self.learning_algo.constant * step_reward / (self.a_space.n_arms * p))
+            # normalisation
+            s = sum(self.a_space.weight); self.a_space.weight[0] /= s; self.a_space.weight[1] /= s
 
-                    if self.a_space.game == 'Bandit':
-                        step_regret = win_rate[0] - win_rate[i]
+        if self.a_space.game == 'Bandit':
+            step_regret = max(win_rate) - win_rate[action]
 
         if self.a_space.game == 'Bandit':
             if self.a_space.t > 1:
                 self.cumul_regret.append(self.cumul_regret[-1] + step_regret)
             else:
                 self.cumul_regret.append(step_regret)
+
+        if self.a_space.game == 'PD':
+            if len(self.cumul_reward) > 1:
+                self.cumul_reward.append(self.cumul_reward[-1] + step_reward)
+            else:
+                self.cumul_reward.append(step_reward)
+            self.reward.append(step_reward)
 
     def train(self, neighbor_actions = []):
         if len(neighbor_actions) != self.a_space.n_neighbors and self.learning_algo.algo_name == 'TUCB':
