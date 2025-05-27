@@ -1,96 +1,67 @@
+import os,json
+import argparse
 from execute import Execute
 from utils import *
 import numpy as np
+from tqdm import tqdm
+
+def load_configs(path):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    cfg_path = path if os.path.isabs(path) else os.path.join(script_dir, path)
+
+    if not os.path.isfile(cfg_path):
+        raise FileNotFoundError(f"Config file not found: {cfg_path!r}")
+    with open(cfg_path, "r") as f:
+        data = json.load(f)
+    return data.get("pd", [])
+
+def run_pd_experiments(configs):
+    for cfg in tqdm(configs):
+        # 1) reconstruire les matrices
+        matrices = [np.array(m) for m in cfg["matrices"]]
+        # 2) extraire la config de bruit
+        dist   = cfg.get("noise_dist",   "uniform")
+        params = tuple(cfg.get("noise_params"))
+        # 3) lancer l'expérience
+        res = Execute(
+            cfg["rounds"], cfg["horizon"],
+            cfg["n_agents"], cfg["const"], cfg["title"]
+        ).getPDResult(
+            matrices,
+            cfg["algos"],
+            noise_dist=dist,
+            noise_params=params,
+        )
+        plot_mean_std(res, cfg["title"])
 
 def main():
-    # define the fixed win rate - index 0 should have the biggest value
-    win_rate = [0.5, 0.4]
+    p = argparse.ArgumentParser()
+    p.add_argument(
+        "--config", "-c", type=str, required=True,
+        help="Chemin vers le JSON d’expériences"
+    )
+    p.add_argument(
+        "--exp-name", "-n", type=str, default=None,
+        help="(optionnel) nom de l’expérience PD à lancer"
+    )
+    args = p.parse_args()
 
-    result = Execute(300, 1000, 4, 1.5).getBanditResult(win_rate, False, "TUCB")
-    avg = np.array(result['avg'])
-    std = np.array(result['std'])
-    printMean(avg, std, 4, 300, 'TUCB')
-    printRuns(result['agents'], "Cumulative Regret of 4 TUCB Agents in a Fully Connected Graph")
+    # on ne récupère que les configs PD
+    pd_configs = load_configs(args.config)
 
-    result = Execute(500, 1000, 11, 1.5).getBanditResult(win_rate, False, "TUCB")
-    avg = np.array(result['avg'])
-    std = np.array(result['std'])
-    printMean(avg, std, 11, 500, "TUCB")
+    # si on précise un exp-name, on filtre
+    if args.exp_name:
+        pd_configs = [
+            cfg for cfg in pd_configs
+            if cfg.get("title") == args.exp_name
+        ]
+        if not pd_configs:
+            raise ValueError(
+                f"Aucune expérience PD nommée '{args.exp_name}' dans {args.config}"
+            )
 
-    result = Execute(50, 5000, 1, 2).getBanditResult(win_rate, True, "UCB")
-    avg = np.array(result['avg'])
-    std = np.array(result['std'])
-    printMean(avg, std, 1, 50, "UCB")
+    print(f"→ Lancement de {len(pd_configs)} expérience(s) PD …")
+    run_pd_experiments(pd_configs)
 
-    # A_PD = np.array([[0.5, 0],
-    #                  [1, 0.2]]).astype(float)
-    # B_PD = np.array([[0.5, 1],
-    #                  [0, 0.2]]).astype(float)
-    # matrices = [A_PD, B_PD]
-    # result = Execute(5000, 1000, 2, 2).getPDResult(matrices, ["UCB", "UCB"])
-    # prop = np.array(result['prop'])
-    # printProp(prop, "Prop of action2 for agent2 in Prisoner's Dilemma UCB [0.5,0.2] w/ init & noise std .3")
-    #
-    # result = Execute(5000, 1000, 2, 1.5).getPDResult(matrices, ["TUCB", "TUCB"])
-    # prop = np.array(result['prop'])
-    # printProp(prop, "Prop of action2 for agent2 in Prisoner's Dilemma TUCB [0.5,0.2] w/ init & noise std .3")
-
-    # A_PD = np.array([[1, 0, 0.5],
-    #                  [0, 1, 0.5],
-    #                  [0.5, 0.5, 0.5]]).astype(float)
-    # B_PD = A_PD
-    # matrices = [A_PD, B_PD]
-    #
-    # result = Execute(5000, 1000, 2, 2).getPDResult(matrices, ["UCB", "UCB"])
-    # props = np.array(result['prop'])
-    # printProp3(props, "Prop of each action for agent2 in 3-dim matrix UCB w/ init & noise uni .05")
-    #
-    # result = Execute(5000, 1000, 2, 1.5).getPDResult(matrices, ["TUCB", "TUCB"])
-    # props = np.array(result['prop'])
-    # printProp3(props, "Prop of each action for agent2 in 3-dim matrix TUCB w/ init & noise uni .05")
-
-    ############
-    # k = -3
-    # A_PG = np.array([[10, 0, k],
-    #                  [0, 2, 0],
-    #                  [k, 0, 10]]).astype(float)
-    # B_PG = A_PG
-    # A_CG = np.array([[11, -30, 0],
-    #                  [-30, 7, 6],
-    #                  [0, 0, 5]]).astype(float)
-    # B_CG = A_CG
-
-    # etendu_unif = 0.05
-    # A = normalizeMatrix(A_PG, etendu_unif)
-    # B = normalizeMatrix(B_PG, etendu_unif)
-    # matrices = [A, B]
-
-    # result = Execute(500, 200, 2, 2).getPDResult(matrices, ["UCB", "UCB"])
-    # printProp3(np.array(result['prop']), "Prop of each action for agent2 in 3-dim PG UCB vs UCB w/ init noise: U(0,0.1)")
-
-    # result = Execute(500, 200, 2, 1.5).getPDResult(matrices, ["TUCB", "TUCB"])
-    # props = np.array(result['prop'])
-    # printProp3(props, "Prop of each action for agent2 in 3-dim PG TUCB vs TUCB w/ init noise: U(0,0.1)")
-
-    # result = Execute(500, 200, 2, 2).getPDResult(matrices, ["UCB", "TUCB"])
-    # props = np.array(result['prop'])
-    # printProp3(props, "Prop of each action for agent2 in 3-dim PG TUCB vs UCB w/ init noise: U(0,0.1)")
-
-    # A = normalizeMatrix(A_CG, etendu_unif)
-    # B = normalizeMatrix(B_CG, etendu_unif)
-    # matrices = [A, B]
-
-    # result = Execute(500, 200, 2, 2).getPDResult(matrices, ["UCB", "UCB"])
-    # printProp3(np.array(result['prop']), "Prop of each action for agent2 in 3-dim CG UCB vs UCB w/ init noise: U(0,0.1)")
-
-    # result = Execute(500, 200, 2, 1.5).getPDResult(matrices, ["TUCB", "TUCB"])
-    # props = np.array(result['prop'])
-    # printProp3(props, "Prop of each action for agent2 in 3-dim CG TUCB vs TUCB w/ init noise: U(0,0.1)")
-
-    # result = Execute(500, 200, 2, 2).getPDResult(matrices, ["UCB", "TUCB"])
-    # props = np.array(result['prop'])
-    # printProp3(props, "Prop of each action for agent2 in 3-dim CG TUCB vs UCB w/ init noise: U(0,0.1)")
-    ######
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

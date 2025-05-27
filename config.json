@@ -16,7 +16,7 @@
       "matrices": [
         [
           [
-            2,
+            1,
             0
           ],
           [
@@ -26,12 +26,504 @@
         ],
         [
           [
-            2,
+            1,
             0
           ],
           [
             0,
             1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "UCB"
+      ],
+      "title": "DG_UCB2_UCB2_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "DG_TS0_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "DG_KLUCB0_KLUCB0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "DG_UCB2_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        2
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "UCB"
+      ],
+      "title": "DG_UCB2_UCB2_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "DG_TS0_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "DG_KLUCB0_KLUCB0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "DG_UCB2_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        2
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "UCB"
+      ],
+      "title": "DG_UCB2_UCB2_N1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "DG_TS0_TS0_N1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "DG_KLUCB0_KLUCB0_N1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "DG_UCB2_TS0_N1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        2
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
           ]
         ]
       ],
@@ -46,6 +538,129 @@
       "rounds": 1000,
       "n_agents": 2,
       "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "SG_TS0_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "SG_KLUCB0_KLUCB0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "SG_UCB2_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
         2,
         2
       ],
@@ -62,7 +677,7 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ],
         [
@@ -72,7 +687,7 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ]
       ],
@@ -87,6 +702,129 @@
       "rounds": 1000,
       "n_agents": 2,
       "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "SG_TS0_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "SG_KLUCB0_KLUCB0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "SG_UCB2_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
         2,
         2
       ],
@@ -103,7 +841,7 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ],
         [
@@ -113,7 +851,7 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ]
       ],
@@ -128,90 +866,8 @@
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "SG_UCB2_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "SG_UCB2_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
       ],
       "noise_dist": "normal",
       "noise_params": [
@@ -226,7 +882,7 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ],
         [
@@ -236,15 +892,56 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ]
       ],
       "algos": [
-        "UCB",
-        "TUCB"
+        "TS",
+        "TS"
       ],
-      "title": "SG_UCB2_TUCB1.5_N1_1000"
+      "title": "SG_TS0_TS0_N1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        1
+      ],
+      "matrices": [
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "SG_KLUCB0_KLUCB0_N1_1000"
     },
     {
       "horizon": 1000,
@@ -252,12 +949,12 @@
       "n_agents": 2,
       "const": [
         2,
-        1
+        0
       ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
-        0
+        1
       ],
       "matrices": [
         [
@@ -267,7 +964,7 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ],
         [
@@ -277,7 +974,7 @@
           ],
           [
             0,
-            1
+            0.5
           ]
         ]
       ],
@@ -285,827 +982,7 @@
         "UCB",
         "TS"
       ],
-      "title": "SG_UCB2_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "SG_UCB2_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "SG_UCB2_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "SG_TUCB1.5_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "SG_TUCB1.5_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "SG_TUCB1.5_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "SG_TUCB1.5_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "SG_TUCB1.5_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "SG_TUCB1.5_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "SG_TUCB1.5_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "SG_TUCB1.5_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "SG_TUCB1.5_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "SG_TS1_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "SG_TS1_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "SG_TS1_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "SG_TS1_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "SG_TS1_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "SG_TS1_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "SG_TS1_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "SG_TS1_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "SG_TS1_TS1_N1_1000"
+      "title": "SG_UCB2_TS0_N1_1000"
     },
     {
       "horizon": 1000,
@@ -1123,22 +1000,36 @@
       "matrices": [
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ],
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ]
       ],
@@ -1146,7 +1037,172 @@
         "UCB",
         "UCB"
       ],
-      "title": "PG2_UCB2_UCB2_N0_1000"
+      "title": "PARETO_UCB2_UCB2_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PARETO_TS0_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PARETO_KLUCB0_KLUCB0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PARETO_UCB2_TS0_N0_1000"
     },
     {
       "horizon": 1000,
@@ -1164,22 +1220,36 @@
       "matrices": [
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ],
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ]
       ],
@@ -1187,7 +1257,172 @@
         "UCB",
         "UCB"
       ],
-      "title": "PG2_UCB2_UCB2_N0.1_1000"
+      "title": "PARETO_UCB2_UCB2_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PARETO_TS0_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PARETO_KLUCB0_KLUCB0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PARETO_UCB2_TS0_N0.1_1000"
     },
     {
       "horizon": 1000,
@@ -1205,22 +1440,36 @@
       "matrices": [
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ],
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ]
       ],
@@ -1228,98 +1477,16 @@
         "UCB",
         "UCB"
       ],
-      "title": "PG2_UCB2_UCB2_N1_1000"
+      "title": "PARETO_UCB2_UCB2_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PG2_UCB2_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PG2_UCB2_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
@@ -1328,112 +1495,99 @@
       "matrices": [
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ],
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ]
       ],
       "algos": [
-        "UCB",
-        "TUCB"
+        "TS",
+        "TS"
       ],
-      "title": "PG2_UCB2_TUCB1.5_N1_1000"
+      "title": "PARETO_TS0_TS0_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "PG2_UCB2_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
-        0.1
+        1
       ],
       "matrices": [
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ],
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ]
       ],
       "algos": [
-        "UCB",
-        "TS"
+        "KLUCB",
+        "KLUCB"
       ],
-      "title": "PG2_UCB2_TS1_N0.1_1000"
+      "title": "PARETO_KLUCB0_KLUCB0_N1_1000"
     },
     {
       "horizon": 1000,
@@ -1441,7 +1595,7 @@
       "n_agents": 2,
       "const": [
         2,
-        1
+        0
       ],
       "noise_dist": "normal",
       "noise_params": [
@@ -1451,22 +1605,36 @@
       "matrices": [
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ],
         [
           [
-            2,
+            1,
+            0,
             0
           ],
           [
             0,
-            2
+            0.2,
+            0
+          ],
+          [
+            0,
+            0,
+            1
           ]
         ]
       ],
@@ -1474,14 +1642,14 @@
         "UCB",
         "TS"
       ],
-      "title": "PG2_UCB2_TS1_N1_1000"
+      "title": "PARETO_UCB2_TS0_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        1.5,
+        2,
         2
       ],
       "noise_dist": "normal",
@@ -1492,37 +1660,200 @@
       "matrices": [
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ],
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ]
       ],
       "algos": [
-        "TUCB",
+        "UCB",
         "UCB"
       ],
-      "title": "PG2_TUCB1.5_UCB2_N0_1000"
+      "title": "PARETO_P_UCB2_UCB2_N0_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        1.5,
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PARETO_P_TS0_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PARETO_P_KLUCB0_KLUCB0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PARETO_P_UCB2_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
         2
       ],
       "noise_dist": "normal",
@@ -1533,37 +1864,200 @@
       "matrices": [
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ],
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ]
       ],
       "algos": [
-        "TUCB",
+        "UCB",
         "UCB"
       ],
-      "title": "PG2_TUCB1.5_UCB2_N0.1_1000"
+      "title": "PARETO_P_UCB2_UCB2_N0.1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        1.5,
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PARETO_P_TS0_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PARETO_P_KLUCB0_KLUCB0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            -3
+          ],
+          [
+            0,
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PARETO_P_UCB2_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
         2
       ],
       "noise_dist": "normal",
@@ -1574,121 +2068,49 @@
       "matrices": [
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ],
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ]
       ],
       "algos": [
-        "TUCB",
+        "UCB",
         "UCB"
       ],
-      "title": "PG2_TUCB1.5_UCB2_N1_1000"
+      "title": "PARETO_P_UCB2_UCB2_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG2_TUCB1.5_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG2_TUCB1.5_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
@@ -1697,121 +2119,49 @@
       "matrices": [
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ],
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ]
       ],
       "algos": [
-        "TUCB",
-        "TUCB"
+        "TS",
+        "TS"
       ],
-      "title": "PG2_TUCB1.5_TUCB1.5_N1_1000"
+      "title": "PARETO_P_TS0_TS0_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG2_TUCB1.5_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG2_TUCB1.5_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
@@ -1820,121 +2170,49 @@
       "matrices": [
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ],
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ]
       ],
       "algos": [
-        "TUCB",
-        "TS"
+        "KLUCB",
+        "KLUCB"
       ],
-      "title": "PG2_TUCB1.5_TS1_N1_1000"
+      "title": "PARETO_P_KLUCB0_KLUCB0_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        2,
         0
       ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG2_TS1_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG2_TS1_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
@@ -1943,276 +2221,40 @@
       "matrices": [
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ],
         [
           [
-            2,
-            0
+            1,
+            0,
+            -3
           ],
           [
             0,
-            2
-          ]
+            0.2,
+            0
+          ],
+          -3,
+          0,
+          1
         ]
       ],
       "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG2_TS1_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG2_TS1_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG2_TS1_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG2_TS1_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
+        "UCB",
         "TS"
       ],
-      "title": "PG2_TS1_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG2_TS1_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ],
-        [
-          [
-            2,
-            0
-          ],
-          [
-            0,
-            2
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG2_TS1_TS1_N1_1000"
+      "title": "PARETO_P_UCB2_TS0_N1_1000"
     },
     {
       "horizon": 1000,
@@ -2260,6 +2302,129 @@
       "rounds": 1000,
       "n_agents": 2,
       "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PD_TS0_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PD_KLUCB0_KLUCB0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PD_UCB2_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
         2,
         2
       ],
@@ -2295,6 +2460,129 @@
         "UCB"
       ],
       "title": "PD_UCB2_UCB2_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PD_TS0_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PD_KLUCB0_KLUCB0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PD_UCB2_TS0_N0.1_1000"
     },
     {
       "horizon": 1000,
@@ -2342,91 +2630,9 @@
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PD_UCB2_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PD_UCB2_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
@@ -2455,64 +2661,23 @@
         ]
       ],
       "algos": [
-        "UCB",
-        "TUCB"
+        "TS",
+        "TS"
       ],
-      "title": "PD_UCB2_TUCB1.5_N1_1000"
+      "title": "PD_TS0_TS0_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "PD_UCB2_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
-        0.1
+        1
       ],
       "matrices": [
         [
@@ -2537,10 +2702,10 @@
         ]
       ],
       "algos": [
-        "UCB",
-        "TS"
+        "KLUCB",
+        "KLUCB"
       ],
-      "title": "PD_UCB2_TS1_N0.1_1000"
+      "title": "PD_KLUCB0_KLUCB0_N1_1000"
     },
     {
       "horizon": 1000,
@@ -2548,7 +2713,7 @@
       "n_agents": 2,
       "const": [
         2,
-        1
+        0
       ],
       "noise_dist": "normal",
       "noise_params": [
@@ -2581,745 +2746,7 @@
         "UCB",
         "TS"
       ],
-      "title": "PD_UCB2_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PD_TUCB1.5_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PD_TUCB1.5_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PD_TUCB1.5_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PD_TUCB1.5_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PD_TUCB1.5_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PD_TUCB1.5_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PD_TUCB1.5_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PD_TUCB1.5_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PD_TUCB1.5_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PD_TS1_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PD_TS1_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PD_TS1_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PD_TS1_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PD_TS1_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PD_TS1_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PD_TS1_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PD_TS1_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            3,
-            5
-          ],
-          [
-            0,
-            1
-          ]
-        ],
-        [
-          [
-            3,
-            0
-          ],
-          [
-            5,
-            1
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PD_TS1_TS1_N1_1000"
+      "title": "PD_UCB2_TS0_N1_1000"
     },
     {
       "horizon": 1000,
@@ -3381,6 +2808,171 @@
       "rounds": 1000,
       "n_agents": 2,
       "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ],
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PG_3_TS0_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ],
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PG_3_KLUCB0_KLUCB0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0
+      ],
+      "matrices": [
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ],
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PG_3_UCB2_TS0_N0_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
         2,
         2
       ],
@@ -3430,6 +3022,171 @@
         "UCB"
       ],
       "title": "PG_3_UCB2_UCB2_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ],
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ]
+      ],
+      "algos": [
+        "TS",
+        "TS"
+      ],
+      "title": "PG_3_TS0_TS0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        0,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ],
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ]
+      ],
+      "algos": [
+        "KLUCB",
+        "KLUCB"
+      ],
+      "title": "PG_3_KLUCB0_KLUCB0_N0.1_1000"
+    },
+    {
+      "horizon": 1000,
+      "rounds": 1000,
+      "n_agents": 2,
+      "const": [
+        2,
+        0
+      ],
+      "noise_dist": "normal",
+      "noise_params": [
+        0.0,
+        0.1
+      ],
+      "matrices": [
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ],
+        [
+          [
+            10,
+            0,
+            -3
+          ],
+          [
+            0.0,
+            2,
+            0
+          ],
+          [
+            -3,
+            0,
+            10
+          ]
+        ]
+      ],
+      "algos": [
+        "UCB",
+        "TS"
+      ],
+      "title": "PG_3_UCB2_TS0_N0.1_1000"
     },
     {
       "horizon": 1000,
@@ -3491,119 +3248,9 @@
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PG_3_UCB2_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PG_3_UCB2_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
@@ -3646,78 +3293,23 @@
         ]
       ],
       "algos": [
-        "UCB",
-        "TUCB"
+        "TS",
+        "TS"
       ],
-      "title": "PG_3_UCB2_TUCB1.5_N1_1000"
+      "title": "PG_3_TS0_TS0_N1_1000"
     },
     {
       "horizon": 1000,
       "rounds": 1000,
       "n_agents": 2,
       "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
+        0,
         0
       ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "PG_3_UCB2_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
       "noise_dist": "normal",
       "noise_params": [
         0.0,
-        0.1
+        1
       ],
       "matrices": [
         [
@@ -3756,10 +3348,10 @@
         ]
       ],
       "algos": [
-        "UCB",
-        "TS"
+        "KLUCB",
+        "KLUCB"
       ],
-      "title": "PG_3_UCB2_TS1_N0.1_1000"
+      "title": "PG_3_KLUCB0_KLUCB0_N1_1000"
     },
     {
       "horizon": 1000,
@@ -3767,7 +3359,7 @@
       "n_agents": 2,
       "const": [
         2,
-        1
+        0
       ],
       "noise_dist": "normal",
       "noise_params": [
@@ -3814,3967 +3406,7 @@
         "UCB",
         "TS"
       ],
-      "title": "PG_3_UCB2_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PG_3_TUCB1.5_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PG_3_TUCB1.5_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PG_3_TUCB1.5_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG_3_TUCB1.5_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG_3_TUCB1.5_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG_3_TUCB1.5_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG_3_TUCB1.5_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG_3_TUCB1.5_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG_3_TUCB1.5_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG_3_TS1_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG_3_TS1_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG_3_TS1_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG_3_TS1_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG_3_TS1_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG_3_TS1_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG_3_TS1_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG_3_TS1_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG_3_TS1_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "UCB"
-      ],
-      "title": "PG_9_UCB2_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "UCB"
-      ],
-      "title": "PG_9_UCB2_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "UCB"
-      ],
-      "title": "PG_9_UCB2_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PG_9_UCB2_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PG_9_UCB2_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "PG_9_UCB2_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "PG_9_UCB2_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "PG_9_UCB2_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "PG_9_UCB2_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PG_9_TUCB1.5_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PG_9_TUCB1.5_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "PG_9_TUCB1.5_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG_9_TUCB1.5_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG_9_TUCB1.5_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "PG_9_TUCB1.5_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG_9_TUCB1.5_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG_9_TUCB1.5_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "PG_9_TUCB1.5_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG_9_TS1_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG_9_TS1_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "PG_9_TS1_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG_9_TS1_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG_9_TS1_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "PG_9_TS1_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG_9_TS1_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG_9_TS1_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ],
-        [
-          [
-            10,
-            0,
-            -3
-          ],
-          [
-            0.0,
-            2,
-            0
-          ],
-          [
-            -3,
-            0,
-            10
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "PG_9_TS1_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "UCB"
-      ],
-      "title": "CG_UCB2_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "UCB"
-      ],
-      "title": "CG_UCB2_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "UCB"
-      ],
-      "title": "CG_UCB2_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "CG_UCB2_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "CG_UCB2_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TUCB"
-      ],
-      "title": "CG_UCB2_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "CG_UCB2_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "CG_UCB2_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        2,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "UCB",
-        "TS"
-      ],
-      "title": "CG_UCB2_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "CG_TUCB1.5_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "CG_TUCB1.5_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "UCB"
-      ],
-      "title": "CG_TUCB1.5_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "CG_TUCB1.5_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "CG_TUCB1.5_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TUCB"
-      ],
-      "title": "CG_TUCB1.5_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "CG_TUCB1.5_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "CG_TUCB1.5_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1.5,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TUCB",
-        "TS"
-      ],
-      "title": "CG_TUCB1.5_TS1_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "CG_TS1_UCB2_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "CG_TS1_UCB2_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        2
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "UCB"
-      ],
-      "title": "CG_TS1_UCB2_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "CG_TS1_TUCB1.5_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "CG_TS1_TUCB1.5_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1.5
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TUCB"
-      ],
-      "title": "CG_TS1_TUCB1.5_N1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "CG_TS1_TS1_N0_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        0.1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "CG_TS1_TS1_N0.1_1000"
-    },
-    {
-      "horizon": 1000,
-      "rounds": 1000,
-      "n_agents": 2,
-      "const": [
-        1,
-        1
-      ],
-      "noise_dist": "normal",
-      "noise_params": [
-        0.0,
-        1
-      ],
-      "matrices": [
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ],
-        [
-          [
-            11,
-            -30,
-            0
-          ],
-          [
-            -30,
-            7,
-            0
-          ],
-          [
-            0,
-            0,
-            5
-          ]
-        ]
-      ],
-      "algos": [
-        "TS",
-        "TS"
-      ],
-      "title": "CG_TS1_TS1_N1_1000"
+      "title": "PG_3_UCB2_TS0_N1_1000"
     }
   ]
 }
