@@ -11,27 +11,24 @@ PDB = [[3, 0],
 matrices = [np.array(PDA), np.array(PDB)]
 
 # Paramètres d’expérience
-n_instance = 15
 horizon = 1000
-n_agents = 2
 algos = ["UCB", "TS"]
-consts = [2.0, 0.0]  # UCB a besoin de la constante, TS non
 noise_dist = "normal"
 noise_params = [0.0, 0.1]
-title = "PD_UCB2_TS0_N0_1000_test"
+
 
 # Lancer une expérience
 restot = {}
+title = "PD_UCB2_TS0_N0_1000_test"
 res = Execute(
-    n_instance = n_instance,
+    n_instance = 500,
     T=horizon,
-    n_agents=n_agents,
-    const=consts,
+    n_agents=2,
     title=title
 ).getPDResult(
     matrices=matrices,
     algo=algos,
-    noise_dist=noise_dist,
+    noise_dist='normal',
     noise_params=tuple(noise_params)
 )
 restot.update({ title: res })
