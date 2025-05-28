@@ -37,10 +37,9 @@ class Execute:
         return actions_played, regrets, rewards
     
 
-    def getPDResult(self, matrices, algo, noise_dist='uniform', noise_params=(0.0, 0.05)):
+    def getPDResult(self, matrices, algo, noise_dist='normal', noise_params=(0, 0.05)):
         # Normalisation de matrices
         matrices_norm = [normalizeMatrix(mat,0) for mat in matrices]
-
         # Boucle sur les itérations
         all_rewards = []
         all_regrets = []
@@ -56,10 +55,6 @@ class Execute:
         plays_arr = np.stack(all_plays, axis=2)
         rewards_arr  = np.stack(all_rewards, axis=2)
         regrets_arr = np.stack(all_regrets, axis=2)
-
-        # Julien : Attention au 1
-        # inst_regrets_arr = 1.0 - rewards_arr
-        # cum_regrets_arr = inst_regrets_arr.cumsum(axis=0)
         cum_regrets_arr = regrets_arr.cumsum(axis=0)
 
         # 3) Calcul de la moyenne et de l’écart-type le long de l’axe réalisations
@@ -67,29 +62,35 @@ class Execute:
         std_r      = rewards_arr.std (axis=2)
         mean_reg    = cum_regrets_arr.mean(axis=2)
         std_reg     = cum_regrets_arr.std (axis=2)
-        # mean_inst_regrets = inst_regrets_arr.mean(axis=2)
-        # std_inst_regrets = inst_regrets_arr.std (axis=2)
-        # mean_cum_regrets = cum_regrets_arr.mean(axis=2)
-        # std_cum_regrets = cum_regrets_arr.std (axis=2)
 
-        # 4) Construction du DataFrame résumé
-        n_steps = mean_r.shape[0]
-        df = pd.DataFrame({'step': np.arange(n_steps)})
-        for i in range(self.n_agents):
-            df[f'mean_reward_agent_{i}']     = mean_r[:, i]
-            df[f'std_reward_agent_{i}']      = std_r[:, i]
-            df[f'mean_cum_regret_agent_{i}'] = mean_reg[:, i]
-            df[f'std_cum_regret_agent_{i}']  = std_reg[:, i]
-            # df[f'mean_inst_regret_agent_{i}']  = mean_inst_regrets[:, i]
-            # df[f'std_inst_regret_agent_{i}']  = std_inst_regrets[:, i]
-            # df[f'mean_cum_regret_agent_{i}']  = mean_cum_regrets[:, i]
-            # df[f'std_cum_regret_agent_{i}']  = std_cum_regrets[:, i]
 
-        # 5) Calcul des proportions d'actions
+        results = {
+        'experiment':   self.title,
+        'algo':         algo,
+        'noise_dist':   noise_dist,
+        'noise_params': noise_params,
+        'metrics': {}
+    }
+
+        for name, arr in [
+            ('mean_reward',     mean_r),
+            ('std_reward',      std_r),
+            ('mean_cum_regret', mean_reg),
+            ('std_cum_regret',  std_reg)
+        ]:
+            results['metrics'][name] = {
+                f'agent_{i}': arr[:, i]
+                for i in range(self.n_agents)
+            }
+
+        # 5) Optionnel : proportions d'actions
+        props = {}
         for a in range(len(matrices[0][0])):
             prop = np.mean(plays_arr == a, axis=2)  # shape (n_steps, n_agents)
-            for i in range(self.n_agents):
-                df[f'prop_action_{a}_agent_{i}'] = prop[:, i]
+            props[f'action_{a}'] = {
+                f'agent_{i}': prop[:, i]
+                for i in range(self.n_agents)
+            }
+        results['metrics']['prop_action'] = props
 
-        df.to_csv(f'Workshop/Data/{self.title}.csv', index=False)
-        return df
+        return results

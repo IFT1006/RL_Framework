@@ -27,7 +27,20 @@ def plot_mean_std(df,title, agent=0, label=None):
     fig.savefig(f'Workshop/Figure/{title}_agent_0.pdf',format='pdf', dpi=300, bbox_inches='tight')
     plt.close(fig)
 
+def plot_mean_std_2(mean, std, title, agent=0, label=None):
 
+    time  = [i+1 for i in range(len(mean))]
+    lbl   = label or f'Agent {agent}'
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.plot(time, mean, label=lbl)
+    ax.fill_between(time, mean, mean + std, alpha=0.3)
+    ax.set_xlabel('Step')
+    ax.set_ylabel('Mean cumul regret')
+    ax.legend()
+
+    fig.savefig(f'Workshop/Figure/{title}_agent_0.pdf',format='pdf', dpi=300, bbox_inches='tight')
+    plt.close(fig)
 
 
 

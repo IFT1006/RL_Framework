@@ -22,7 +22,8 @@ class LearningAlgo:
     def getUCBAction(self, first_time, action):
         if not first_time:
             # start the algo after initialization
-            est_opt = np.sqrt(self.constant * np.log(self.a_space.t) / self.a_space.plays)
+            var = max(self.noise_param, 1e-2)
+            est_opt =  np.sqrt(8* var * np.log(self.a_space.t) / self.a_space.plays)
             action_val = self.a_space.avg_reward + est_opt
 
             best = np.flatnonzero(action_val == action_val.max())
