@@ -35,7 +35,7 @@ sharey = False
 fig, axes = plt.subplots(1,3,sharey=sharey, figsize=(15, 4))
 for ax, noise in zip(axes,noise_exp):
     for algo_paired in algos:
-        title = f"{algo_paired[0]}_vs_{algo_paired[1]}_{noise}"
+        title = f"{algo_paired[0]} x {algo_paired[1]}_{noise}"
         res = (Execute(500,1000,2,[None, None], title).
                getPDResult(matrices, algo_paired, 'normal', noise))
         restot.update({ title: res})
@@ -46,7 +46,7 @@ for ax, noise in zip(axes,noise_exp):
         ax.plot(
             x,
             mean,
-            label=f"{algo_paired[0]}_vs_{algo_paired[1]}",
+            label=f"{algo_paired[0]} x {algo_paired[1]}",
             linewidth=1,
         )
         ax.fill_between(
@@ -57,7 +57,7 @@ for ax, noise in zip(axes,noise_exp):
         )
 
     ax.set_title(f"$\\sigma_{{noise}}={noise[1]}$")
-    ax.set_xlabel("Time step (t)")
+    ax.set_xlabel("Round (t)")
     sns.despine(ax=ax, trim=True)
 
 # 3) Labels communs
