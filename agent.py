@@ -7,8 +7,6 @@ class Agent:
         self.learning_algo = algo
         self.a_space = a_space
         self.regret = []
-        # # TODO: on a besoin d'afficher les rewards? Selon Audrey les regrets sont plus pertinent?
-        # self.cumul_reward = []
         self.reward = []
 
     def update(self, action, step_reward, step_regret):
@@ -21,11 +19,6 @@ class Agent:
             where=self.a_space.plays != 0
         )
         self.regret.append(step_regret)
-
-        # if len(self.cumul_reward) > 1:
-        #     self.cumul_reward.append(self.cumul_reward[-1] + step_reward)
-        # else:
-        #     self.cumul_reward.append(step_reward)
         self.reward.append(step_reward)
 
     def train(self):
