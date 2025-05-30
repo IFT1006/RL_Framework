@@ -94,9 +94,19 @@ for game_name, matrices in tqdm(games.items()):
         fig.supylabel("Proportion over 500 runs")
 
         # légende globale en bas
+        label = []
         handles, labs = axes[1].get_legend_handles_labels()
+        # incrémenter par 1 car action est indexé sur 1 et non 0
+        label.extend(labs)
+        updated_label = []
+        for lab in label:
+            x_str, y_str = lab.strip('()').split(',')
+            x = int(x_str.strip()) + 1
+            y = int(y_str.strip()) + 1
+            updated_label.append(f'({x},{y})')
+
         fig.legend(
-            handles, labs,
+            handles, updated_label,
             loc='lower center',
             ncol=len(labels),
             frameon=False,
