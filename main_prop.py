@@ -6,7 +6,7 @@ from tqdm import tqdm
 np.random.seed(43)
 
 plt.rcParams.update({
-    "text.usetex":     False,
+    "text.usetex":     True,
     "font.family":     "serif",
     "font.serif":      ["Times New Roman"],
     "figure.dpi":      300,
@@ -108,9 +108,9 @@ for game_name, matrices in tqdm(games.items()):
         fig.legend(
             handles, updated_label,
             loc='lower center',
-            ncol=len(labels),
+            ncol=4,
             frameon=False,
-            bbox_to_anchor=(0.5, -0.05)
+            bbox_to_anchor=(0.5, -0.1)
         )
 
         # sauvegarde

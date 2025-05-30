@@ -5,7 +5,7 @@ import seaborn as sns
 np.random.seed(43)
 
 plt.rcParams.update({
-    "text.usetex":        True,
+    "text.usetex":        False,
     "font.family":        "serif",
     "font.serif":         ["Times New Roman"],
     "figure.dpi":         300,
