@@ -5,7 +5,7 @@ import seaborn as sns
 np.random.seed(43)
 
 plt.rcParams.update({
-    "text.usetex":        False,
+    "text.usetex":        True,
     "font.family":        "serif",
     "font.serif":         ["Times New Roman"],
     "figure.dpi":         300,
@@ -17,14 +17,14 @@ plt.rcParams.update({
 })
 sns.set_theme(style="whitegrid", palette="colorblind")
 
-PG = [[10,0,0],[0,2,10],[0,0,10]]
+PG = [[1,0,0],[0,0.2,0],[0,0,1]]
 matrices = [np.array(PG), np.array(PG)]
 
 restot = {}
 
 title = "PD"
 noise_exp = [[0.0, 0.0],[0.0, 0.1],[0.0, 1.0]]
-algos = [["UCB", "UCB"],["TS", "TS"],["UCB", "TS"],["KLUCB", "KLUCB"],["UCB", "KLUCB"]]
+algos = [["UCB", "UCB"],["KLUCB", "KLUCB"],["TS", "TS"],["UCB", "KLUCB"],["UCB", "TS"]]
 sharey = False
 fig, axes = plt.subplots(1,3,sharey=sharey, figsize=(15, 4))
 for ax, noise in zip(axes,noise_exp):
@@ -71,5 +71,5 @@ axes[0].legend(handles, labels, loc="upper left", frameon=False)
 axes[0].set_ylabel("Mean cumulative regret $R(t)$")
 axes[0].set_ylabel("Mean cumulative regret $R(t)$")
 plt.tight_layout()
-fig.savefig("Workshop/Figure/PG_ucb_pair.pdf", dpi=300, bbox_inches="tight")
+fig.savefig("Workshop/Figure/Figure v3/PG_v2.pdf", dpi=300, bbox_inches="tight")
 plt.close(fig)

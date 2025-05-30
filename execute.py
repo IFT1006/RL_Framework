@@ -46,7 +46,7 @@ class Execute:
 
         for realisation in range(0, self.n_instance): #for realisation in tqdm(range(0, self.n_instance)):
             plays, regrets, rewards = self.runOnePDExperiment(matrices_norm, algo, noise_dist, noise_params)
-            all_plays.append(np.array(plays).T)
+            all_plays.append(np.array(plays))
             all_rewards.append(np.array(rewards).T)
             all_regrets.append (np.array(regrets).T)
 
@@ -91,5 +91,27 @@ class Execute:
                 for i in range(self.n_agents)
             }
         results['metrics']['prop_action'] = props
+
+        print(plays_arr.shape)
+        paire_action = np.ones((plays_arr.shape[1], plays_arr.shape[2]))
+        print(paire_action.shape)
+        for i in range(plays_arr.shape[1]):
+            for j in range(plays_arr.shape[2]):
+                jj = 0
+                for a1 in range(len(matrices[0][0])):
+                    for a2 in range(len(matrices[0][0])):
+                        jj += 1
+                        if plays_arr[0, i, j] == a1 and plays_arr[1, i, j] == a2:
+                            paire_action[i, j] = jj
+        print(paire_action.shape)
+        counts = paire_action
+        types = np.unique(counts)
+        n_types = types.size
+        vecteur_de_compte = np.zeros((counts.shape[0], n_types), dtype=int)
+        print(vecteur_de_compte.shape)
+        for j in range(counts.shape[0]):
+            for idx, t in enumerate(types):
+                vecteur_de_compte[j, idx] = np.count_nonzero(counts[j] == t)
+        results["metrics"]["vecteur_de_comptes"] = vecteur_de_compte
 
         return results

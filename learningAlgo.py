@@ -23,8 +23,7 @@ class LearningAlgo:
         if not first_time:
             # start the algo after initialization
             var = max(self.noise_param + .5, 1e-2)
-            #est_opt =  np.sqrt(8* var * np.log(self.a_space.t) / self.a_space.plays) #Julien28
-            est_opt = np.sqrt(2* var * np.log(self.a_space.t) / self.a_space.plays)
+            est_opt = np.sqrt(8 * var * np.log(self.a_space.t) / self.a_space.plays)
             action_val = self.a_space.avg_reward + est_opt
 
             best = np.flatnonzero(action_val == action_val.max())

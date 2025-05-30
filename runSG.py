@@ -5,7 +5,7 @@ import seaborn as sns
 np.random.seed(43)
 
 plt.rcParams.update({
-    "text.usetex":        False,
+    "text.usetex":        True,
     "font.family":        "serif",
     "font.serif":         ["Times New Roman"],
     "figure.dpi":         300,
@@ -18,11 +18,11 @@ plt.rcParams.update({
 sns.set_theme(style="whitegrid", palette="colorblind")
 
 restot = {}
-SG = [[2,0],[0,1]]
+SG = [[1,0],[0,0.5]]
 matrices = [np.array(SG), np.array(SG)]
 title = "SG"
 noise_exp = [[0.0, 0.0],[0.0, 0.1],[0.0, 1.0]]
-algos = [["UCB", "UCB"],["TS", "TS"],["UCB", "TS"],["KLUCB", "KLUCB"],["UCB", "KLUCB"]]
+algos = [["UCB", "UCB"],["KLUCB", "KLUCB"],["TS", "TS"],["UCB", "KLUCB"],["UCB", "TS"]]
 sharey = False
 fig, axes = plt.subplots(1,3,sharey=sharey, figsize=(15, 4))
 for ax, noise in zip(axes,noise_exp):
@@ -69,5 +69,5 @@ axes[0].legend(handles, labels, loc="upper left", frameon=False)
 axes[0].set_ylabel("Mean cumulative regret $R(t)$")
 axes[0].set_ylabel("Mean cumulative regret $R(t)$")
 plt.tight_layout()
-fig.savefig("Workshop/Figure/SG_v1.pdf", dpi=300, bbox_inches="tight")
+fig.savefig("Workshop/Figure/Figure v3/SG_v1.pdf", dpi=300, bbox_inches="tight")
 plt.close(fig)
