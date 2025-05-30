@@ -13,7 +13,7 @@ class Environnement:
     def sample_noise(self):
         if self.noise_dist == 'normal':
             mean, var = self.noise_params
-            std = np.sqrt(var)
+            std = np.sqrt(var + 0.25)
             return np.random.normal(mean, std)
         else:
             raise ValueError(f"Unknown noise distribution: {self.noise_dist}")

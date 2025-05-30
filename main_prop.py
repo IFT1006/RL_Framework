@@ -6,7 +6,7 @@ from tqdm import tqdm
 np.random.seed(43)
 
 plt.rcParams.update({
-    "text.usetex":     True,
+    "text.usetex":     False,
     "font.family":     "serif",
     "font.serif":      ["Times New Roman"],
     "figure.dpi":      300,
@@ -61,7 +61,7 @@ for game_name, matrices in tqdm(games.items()):
         )
 
         for ax, (a1, a2) in zip(axes, algo_pairs):
-            title = f"{game_name}_{a1}_vs_{a2}_noise{noise[1]:.2f}"
+            title = f"{game_name}_{a1}$\\times${a2}_noise{noise[1]:.2f}"
             res = Execute(n_runs, 1000, 2, [None, None], title) \
                   .getPDResult(matrices, [a1, a2], 'normal', noise)
 
@@ -83,8 +83,10 @@ for game_name, matrices in tqdm(games.items()):
                     label=labels[code],
                     linewidth=1
                 )
-
-            ax.set_title(f"{a1} vs {a2}")
+            ax.set_xlim(left=0)
+            ax.set_ylim(bottom=0)
+            ax.margins(x=0, y=0)
+            ax.set_title(f"{a1}$\\times${a2}")
             sns.despine(ax=ax, trim=True)
 
         # axes partagés : on ajoute supxlabel et supylabel
@@ -98,11 +100,10 @@ for game_name, matrices in tqdm(games.items()):
             loc='lower center',
             ncol=len(labels),
             frameon=False,
-            bbox_to_anchor=(0.5, -0.02)
+            bbox_to_anchor=(0.5, -0.05)
         )
 
-        # ajustement final & sauvegarde
-        plt.tight_layout(rect=[0, 0.05, 1, 0.97])
+        # sauvegarde
         filename = f"Workshop/Figure/Figure v3/proportions_{game_name}_noise{noise[1]:.2f}.pdf"
         fig.savefig(filename, dpi=300, bbox_inches="tight")
 
