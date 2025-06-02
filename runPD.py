@@ -72,6 +72,6 @@ axes[0].legend(handles, labels, loc="upper left", frameon=False)
 axes[0].set_ylabel("Mean cumulative regret $R(t)$")
 axes[0].set_ylabel("Mean cumulative regret $R(t)$")
 plt.tight_layout()
-fig.savefig("Workshop/Figure/Figure v3/PD_v1_ucb_pair.pdf", dpi=300, bbox_inches="tight")
+fig.savefig("Workshop/Figure/PD.pdf", dpi=300, bbox_inches="tight")
 plt.close(fig)
 
