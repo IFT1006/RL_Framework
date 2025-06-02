@@ -1,12 +1,9 @@
-import pandas as pd
 import numpy as np
-from tqdm import tqdm
 
 from agentSpace import AgentSpace
 from learningAlgo import LearningAlgo
 from agent import Agent
-from envPD import EnvPD
-from envBandit import EnvBandit
+from environment import Environnement
 from utils import normalizeMatrix
 
 class Execute:
@@ -14,114 +11,112 @@ class Execute:
         self.n_instance = n_instance
         self.T = T
         self.n_agents = n_agents
-        self.const = const # Julien constante n'est pas utilisé de la même façon pour ts et ucb
-        # C'est de ma faute et ce n'est pas idéal. 
-        # Lorsqu'on séparera les algos, ça va aider
-        self.title = title # Julien pt changer ça
+        self.const = const
+        self.title = title
 
-    def runOnePDExperiment(self, matrices, algo, noise_dist='uniform', noise_params=(0.0, 0.05)):
+    def runOnePDExperiment(self, matrices, algo, noise_dist, noise_params):
 
         # Initialisation de l'environnement
-        env = EnvPD(matrices, self.n_agents, noise_dist, noise_params)
+        env = Environnement(matrices, noise_dist, noise_params)
         for agent in range(0, self.n_agents):
-            a_space = AgentSpace(len(matrices[0][0]), self.n_agents, 'PD', agent+1)
-            learning_algo = LearningAlgo(self.const[agent], algo[agent], a_space)
+            a_space = AgentSpace(len(matrices[0][0]))
+            learning_algo = LearningAlgo(self.const[agent], algo[agent], a_space, noise_params[1])
             env.ajouter_agents(Agent(a_space, learning_algo))
         
         plays = []
+        exploration_list = []
         for time_step in range(0, self.T):
-            actions = env.step()
+            actions, explorations = env.step()
             plays.append(actions)
+            exploration_list.append(explorations)
 
         # Il faudrait enlever cumul_reward et le calucler ailleurs
         actions_played = [[i[0] for i in plays],[i[1] for i in plays]]
-        cumul_rewards = [env.agents[k].cumul_reward for k in range(self.n_agents)]
+        regrets = [env.agents[k].regret for k in range(self.n_agents)]
         rewards = [env.agents[k].reward for k in range(self.n_agents)]
-
-        return actions_played, cumul_rewards, rewards
+        explorations_done = [[i[0] for i in exploration_list], [i[1] for i in exploration_list]]
+        return actions_played, regrets, rewards, explorations_done
     
 
-    def getPDResult(self, matrices, algo, noise_dist='uniform', noise_params=(0.0, 0.05)):
+    def getPDResult(self, matrices, algo, noise_dist='normal', noise_params=(0, 0.05)):
         # Normalisation de matrices
         matrices_norm = [normalizeMatrix(mat,0) for mat in matrices]
-
         # Boucle sur les itérations
-        df = pd.DataFrame()
         all_rewards = []
-        all_cum_rewards = []
+        all_regrets = []
         all_plays = []
+        all_explorations = []
 
         for realisation in range(0, self.n_instance): #for realisation in tqdm(range(0, self.n_instance)):
-            plays, cumul_rewards, rewards = self.runOnePDExperiment(matrices_norm, algo, noise_dist, noise_params)
-            all_plays.append(np.array(plays).T)
+            plays, regrets, rewards, explorations = self.runOnePDExperiment(matrices_norm, algo, noise_dist, noise_params)
+            all_plays.append(np.array(plays))
             all_rewards.append(np.array(rewards).T)
-            all_cum_rewards.append (np.array(cumul_rewards).T)
+            all_regrets.append(np.array(regrets).T)
+            all_explorations.append(np.array(explorations))
 
         # 2) Empilement en tableaux 3D : (timesteps, n_agents, n_instance)
         plays_arr = np.stack(all_plays, axis=2)
         rewards_arr  = np.stack(all_rewards, axis=2)
-        cum_rewards_arr = np.stack(all_cum_rewards, axis=2) # À supprimer
-
-        # Julien : Attention au 1
-        inst_regrets_arr = 1.0 - rewards_arr 
-        cum_regrets_arr = inst_regrets_arr.cumsum(axis=0) 
-        cum_rewards_arr = rewards_arr.cumsum(axis=0)
+        regrets_arr = np.stack(all_regrets, axis=2)
+        cum_regrets_arr = regrets_arr.cumsum(axis=0)
+        explorations_arr = np.stack(all_explorations, axis=0).T
+        explorations_conjointe_arr = np.min(explorations_arr, axis=1)
 
         # 3) Calcul de la moyenne et de l’écart-type le long de l’axe réalisations
         mean_r     = rewards_arr.mean(axis=2)
         std_r      = rewards_arr.std (axis=2)
-        mean_cr    = cum_rewards_arr.mean(axis=2)
-        std_cr     = cum_rewards_arr.std (axis=2)
-        mean_inst_regrets = inst_regrets_arr.mean(axis=2)
-        std_inst_regrets = inst_regrets_arr.std (axis=2)
-        mean_cum_regrets = cum_regrets_arr.mean(axis=2)
-        std_cum_regrets = cum_regrets_arr.std (axis=2)
+        mean_reg    = cum_regrets_arr.mean(axis=2)
+        std_reg     = cum_regrets_arr.std (axis=2)
+        mean_exploration = explorations_arr.mean(axis=2)
+        mean_exploration_conjointe = explorations_conjointe_arr.mean(axis=1)
 
-        # 4) Construction du DataFrame résumé
-        n_steps = mean_r.shape[0]
-        df = pd.DataFrame({'step': np.arange(n_steps)})
-        for i in range(self.n_agents):
-            df[f'mean_reward_agent_{i}']     = mean_r[:, i]
-            df[f'std_reward_agent_{i}']      = std_r[:, i]
-            df[f'mean_cum_reward_agent_{i}'] = mean_cr[:, i]
-            df[f'std_cum_reward_agent_{i}']  = std_cr[:, i]
-            df[f'mean_inst_regret_agent_{i}']  = mean_inst_regrets[:, i]
-            df[f'std_inst_regret_agent_{i}']  = std_inst_regrets[:, i]
-            df[f'mean_cum_regret_agent_{i}']  = mean_cum_regrets[:, i]
-            df[f'std_cum_regret_agent_{i}']  = std_cum_regrets[:, i]
+        results = {
+        'experiment':   self.title,
+        'algo':         algo,
+        'noise_dist':   noise_dist,
+        'noise_params': noise_params,
+        'metrics': {}
+    }
 
-        # 5) Calcul des proportions d'actions
+        for name, arr in [
+            ('mean_reward',     mean_r),
+            ('std_reward',      std_r),
+            ('mean_cum_regret', mean_reg),
+            ('std_cum_regret',  std_reg),
+            ('mean_exploration', mean_exploration),
+        ]:
+            results['metrics'][name] = {
+                f'agent_{i}': arr[:, i]
+                for i in range(self.n_agents)
+            }
+        results['metrics']['mean_exploration_conjointe'] = mean_exploration_conjointe
+
+        # 5) Optionnel : proportions d'actions
+        props = {}
         for a in range(len(matrices[0][0])):
             prop = np.mean(plays_arr == a, axis=2)  # shape (n_steps, n_agents)
-            for i in range(self.n_agents):
-                df[f'prop_action_{a}_agent_{i}'] = prop[:, i]
+            props[f'action_{a}'] = {
+                f'agent_{i}': prop[:, i]
+                for i in range(self.n_agents)
+            }
+        results['metrics']['prop_action'] = props
 
-        df.to_csv(f'Workshop/Data/{self.title}.csv', index=False)
-        return df
+        paire_action = np.ones((plays_arr.shape[1], plays_arr.shape[2]))
+        for i in range(plays_arr.shape[1]):
+            for j in range(plays_arr.shape[2]):
+                jj = 0
+                for a1 in range(len(matrices[0][0])):
+                    for a2 in range(len(matrices[0][0])):
+                        jj += 1
+                        if plays_arr[0, i, j] == a1 and plays_arr[1, i, j] == a2:
+                            paire_action[i, j] = jj
+        counts = paire_action
+        types = np.unique(counts)
+        n_types = types.size
+        vecteur_de_compte = np.zeros((counts.shape[0], n_types), dtype=int)
+        for j in range(counts.shape[0]):
+            for idx, t in enumerate(types):
+                vecteur_de_compte[j, idx] = np.count_nonzero(counts[j] == t)
+        results["metrics"]["vecteur_de_comptes"] = vecteur_de_compte
 
-    def getBanditResult(self, win_rate, use_rand_win, algo):
-
-        # Julien: probalement à revoir, j'ai fait beaucoup de changements.
-
-        experiments = []
-        for e in tqdm(range(0, self.n_instance)):
-            # define the random win rate for the current instance if asked - index 0 should have the biggest value
-            if use_rand_win is True:
-                rand_win_rate = np.random.rand(2)
-                while rand_win_rate[0] <= rand_win_rate[1]:
-                    rand_win_rate = np.random.rand(2)
-
-            env = EnvBandit(self.n_agents, win_rate if use_rand_win is False else rand_win_rate)
-
-            for i in range(0, self.n_agents):
-                a_space = AgentSpace(len(win_rate), self.n_agents, 'Bandit', i+1)
-                learning_algo = LearningAlgo(self.const, algo, a_space)
-                env.ajouter_agents(Agent(a_space, learning_algo))
-
-            for t in range(0, self.T):
-                env.step()
-
-            experiments.append(env.agents[0].cumul_regret)
-
-        # if more than 1 instance the key "agents" returns the cumul_regret of agents in the last instance
-        return { 'avg': pd.DataFrame(experiments).mean(), 'std': pd.DataFrame(experiments).std(), 'agents': env.agents }
+        return results
