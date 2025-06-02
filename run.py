@@ -208,16 +208,16 @@ if __name__ == "__main__":
 
     # Dictionnaire des jeux avec leurs matrices respectives
     games = {
-        "PG_wp": [np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]]),
-                  np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]])],
-        "PG": [np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]]),
-               np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]])],
-        "PD": [np.array([[0.6, 0], [1, 0.4]]),
-               np.array([[0.6, 0], [1, 0.4]]).T],
-        "SG": [np.array([[1, 0], [0, 0.5]]),
-               np.array([[1, 0], [0, 0.5]])],
-        "CG_no": [np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]]),
-                  np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]])]
+        "PG_wp": [[np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]]),
+                  np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]])], [2,1,2]],
+        "PG": [[np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]]),
+               np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]])], [0,0,2]],
+        "PD": [[np.array([[0.6, 0], [1, 0.4]]),
+               np.array([[0.6, 0], [1, 0.4]]).T], [1,1,2]],
+        "SG": [[np.array([[1, 0], [0, 0.5]]),
+               np.array([[1, 0], [0, 0.5]])],[1,1,2]],
+        "CG_no": [[np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]]),
+                  np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]])],[2,2,2]]
     }
 
     # Paramètres communs à toutes les expériences
@@ -231,8 +231,7 @@ if __name__ == "__main__":
     ]
 
     for game in tqdm(games.keys()):
-        if game == "PD":
-            results = run_one_game_experiments(game ,games[game], noise_levels, algo_pairs, rounds=1, horizon=10, n_agents=2)
-            plot_results(game, results, noise_levels, algo_pairs, [2,2,2],save_folder="Workshop/Figure")
-            plot_results_action(game, results, noise_levels, algo_pairs, 500, save_folder="Workshop/Figure")
-            plot_results_exploration(game, results, noise_levels, algo_pairs,[2,2,2] , save_folder="Workshop/Figure")
+        results = run_one_game_experiments(game ,games[game][0], noise_levels, algo_pairs, rounds=500, horizon=1000, n_agents=2)
+        plot_results(game, results, noise_levels, algo_pairs, games[game][1],save_folder="Workshop/Figure25")
+        plot_results_action(game, results, noise_levels, algo_pairs, 500, save_folder="Workshop/Figure25")
+        # plot_results_exploration(game, results, noise_levels, algo_pairs,games[game][1] , save_folder="Workshop/Figure25")

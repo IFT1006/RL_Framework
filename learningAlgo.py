@@ -23,7 +23,7 @@ class LearningAlgo:
         exploration = 1
         if not first_time:
             # start the algo after initialization
-            var = max(self.noise_param + .5, 1e-2)
+            var = max(self.noise_param + .25, 1e-2)
             est_opt = np.sqrt(8 * var * np.log(self.a_space.t) / self.a_space.plays)
             action_val = self.a_space.avg_reward + est_opt
             print(self.a_space.t,self.a_space.avg_reward, est_opt)
@@ -44,7 +44,7 @@ class LearningAlgo:
         # Mettre self. quand on va diviser les algos
         mu_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
         var_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
-        var = max(self.noise_param + .5, 1e-2)
+        var = max(self.noise_param + .25, 1e-2)
         exploration = 1
         if not first_time:
             mu_post = (mu_0/var_0 + self.a_space.sums/var) / (1/var_0 + self.a_space.plays/var)
@@ -64,7 +64,7 @@ class LearningAlgo:
         return action, exploration
 
     def getKLUCBAction(self, first_time, action):
-        var = max(self.noise_param + 0.5, 1e-2)
+        var = max(self.noise_param + 0.25, 1e-2)
         c = 3
         exploration=1
 
