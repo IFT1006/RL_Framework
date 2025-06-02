@@ -23,6 +23,6 @@ class Agent:
 
     def train(self):
         self.a_space.t += 1
-        action = self.learning_algo.getAction()
+        action, exploration = self.learning_algo.getAction()
 
-        return action
+        return action, exploration

@@ -13,7 +13,7 @@ class Environnement:
     def sample_noise(self):
         if self.noise_dist == 'normal':
             mean, var = self.noise_params
-            std = np.sqrt(var + 0.25)
+            std = np.sqrt(var)
             return np.random.normal(mean, std)
         else:
             raise ValueError(f"Unknown noise distribution: {self.noise_dist}")
@@ -21,6 +21,7 @@ class Environnement:
     def updateStep(self, a1, a2):
         r1 = self.matrices[0][a1, a2] + self.sample_noise()
         r2 = self.matrices[1][a1, a2] + self.sample_noise()
+        print('reward',r1, r2)
 
         min_matrix = np.minimum(self.matrices[0], self.matrices[1])
         max_val = np.max(min_matrix)
@@ -31,6 +32,7 @@ class Environnement:
         self.agents[1].update(a2, r2, regret)
 
     def step(self):
-        action1, action2 = self.agents[0].train(), self.agents[1].train()
+        action1, exploration1 = self.agents[0].train()
+        action2, exploration2 = self.agents[1].train()
         self.updateStep(action1, action2)
-        return [action1, action2]
+        return [action1, action2], [exploration1, exploration2]

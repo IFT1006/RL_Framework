@@ -20,25 +20,32 @@ class LearningAlgo:
         return {'action': action, 'first_time': first_time }
 
     def getUCBAction(self, first_time, action):
+        exploration = 1
         if not first_time:
             # start the algo after initialization
             var = max(self.noise_param + .5, 1e-2)
             est_opt = np.sqrt(8 * var * np.log(self.a_space.t) / self.a_space.plays)
             action_val = self.a_space.avg_reward + est_opt
+            print(self.a_space.t,self.a_space.avg_reward, est_opt)
 
             best = np.flatnonzero(action_val == action_val.max())
             if best.size == 1:
                 action = int(best[0])
             else:
                 action = int(np.random.choice(best))
-        return action
+
+            # Exploration
+            best_greedy = np.flatnonzero(self.a_space.avg_reward == self.a_space.avg_reward.max())
+            exploration = int(action not in best_greedy)
+
+        return action, exploration
     
     def getTSAction(self, first_time, action):
         # Mettre self. quand on va diviser les algos
         mu_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
         var_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
         var = max(self.noise_param + .5, 1e-2)
-
+        exploration = 1
         if not first_time:
             mu_post = (mu_0/var_0 + self.a_space.sums/var) / (1/var_0 + self.a_space.plays/var)
             var_post = 1 / (1 / var_0 + self.a_space.plays / var)
@@ -49,11 +56,17 @@ class LearningAlgo:
                 action = int(best[0])
             else:
                 action = int(np.random.choice(best))
-        return action
+
+            # Exploration
+            best_greedy = np.flatnonzero(mu_post == mu_post.max())
+            exploration =  int(action not in best_greedy)
+
+        return action, exploration
 
     def getKLUCBAction(self, first_time, action):
         var = max(self.noise_param + 0.5, 1e-2)
         c = 3
+        exploration=1
 
         if not first_time:
             means = self.a_space.sums / self.a_space.plays
@@ -65,7 +78,12 @@ class LearningAlgo:
                 action = int(best[0])
             else:
                 action = int(np.random.choice(best))
-        return action
+
+            # Exploration
+            best_greedy = np.flatnonzero(self.a_space.avg_reward == self.a_space.avg_reward.max())
+            exploration =  int(action not in best_greedy)
+
+        return action, exploration
 
     def getAction(self):
         res = self.getInitialState()
