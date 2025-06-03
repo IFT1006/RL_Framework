@@ -3,6 +3,7 @@ from execute import Execute
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
+import pandas as pd
 
 
 def run_one_game_experiments(game_name, matrices, noise_levels, algos, rounds=500, horizon=1000, n_agents=2):
@@ -78,6 +79,18 @@ def plot_results(game_name, results, noise_levels, algos,y_axes, save_folder="Wo
     fig.savefig(f"{save_folder}/{game_name}.pdf", dpi=300, bbox_inches="tight")
     plt.close(fig)
 
+def plot_results_action_mode(game_name, results, noise_levels, algos, save_folder="Workshop/Figure"):
+    for noise in noise_levels:
+        table_data = {}
+        for algo_pair in algos:
+            title = f"{algo_pair[0]}×{algo_pair[1]}_{noise[1]}"
+            data = results[title]['metrics']["vecteur_de_proportion_mode"]
+            table_data[f"{algo_pair[0]}×{algo_pair[1]}"] = data
+
+        # Create DataFrame and save as CSV
+        df = pd.DataFrame(table_data)
+        filename = f"{save_folder}/{game_name}_action_mode_{noise[1]}.csv"
+        df.to_csv(filename)
 
 
 def plot_results_exploration(game_name, results, noise_levels, algos,y_axes, save_folder="Workshop/Figure"):
@@ -232,6 +245,7 @@ if __name__ == "__main__":
 
     for game in tqdm(games.keys()):
         results = run_one_game_experiments(game ,games[game][0], noise_levels, algo_pairs, rounds=500, horizon=1000, n_agents=2)
-        plot_results(game, results, noise_levels, algo_pairs, games[game][1],save_folder="Workshop/Figure25")
-        plot_results_action(game, results, noise_levels, algo_pairs, 500, save_folder="Workshop/Figure25")
-        # plot_results_exploration(game, results, noise_levels, algo_pairs,games[game][1] , save_folder="Workshop/Figure25")
+        plot_results(game, results, noise_levels, algo_pairs, games[game][1],save_folder="Workshop/Figure_test")
+        plot_results_action(game, results, noise_levels, algo_pairs, 500, save_folder="Workshop/Figure_test")
+        plot_results_exploration(game, results, noise_levels, algo_pairs,games[game][1] , save_folder="Workshop/Figure_test")
+        plot_results_action_mode(game, results, noise_levels, algo_pairs, save_folder="Workshop/Figure_test")
