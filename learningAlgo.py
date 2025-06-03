@@ -26,7 +26,6 @@ class LearningAlgo:
             var = max(self.noise_param + .25, 1e-2)
             est_opt = np.sqrt(8 * var * np.log(self.a_space.t) / self.a_space.plays)
             action_val = self.a_space.avg_reward + est_opt
-            print(self.a_space.t,self.a_space.avg_reward, est_opt)
 
             best = np.flatnonzero(action_val == action_val.max())
             if best.size == 1:

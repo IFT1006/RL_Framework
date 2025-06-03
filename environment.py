@@ -21,7 +21,6 @@ class Environnement:
     def updateStep(self, a1, a2):
         r1 = self.matrices[0][a1, a2] + self.sample_noise()
         r2 = self.matrices[1][a1, a2] + self.sample_noise()
-        print('reward',r1, r2)
 
         min_matrix = np.minimum(self.matrices[0], self.matrices[1])
         max_val = np.max(min_matrix)

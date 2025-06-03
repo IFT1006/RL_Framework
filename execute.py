@@ -5,6 +5,7 @@ from learningAlgo import LearningAlgo
 from agent import Agent
 from environment import Environnement
 from utils import normalizeMatrix
+from scipy import stats
 
 class Execute:
     def __init__(self, n_instance, T, n_agents, const, title):
@@ -110,6 +111,7 @@ class Execute:
                         jj += 1
                         if plays_arr[0, i, j] == a1 and plays_arr[1, i, j] == a2:
                             paire_action[i, j] = jj
+
         counts = paire_action
         types = np.unique(counts)
         n_types = types.size
@@ -118,5 +120,17 @@ class Execute:
             for idx, t in enumerate(types):
                 vecteur_de_compte[j, idx] = np.count_nonzero(counts[j] == t)
         results["metrics"]["vecteur_de_comptes"] = vecteur_de_compte
+
+        mode_result = stats.mode(counts[-50:, :], axis=0, keepdims=True)
+        mode_calcul = mode_result.mode[0]  # (1, n_columns)
+        vecteur_de_compte_mode = np.zeros(len(types), dtype=int)
+        for i in range(len(types)+1): # À améliorer
+            for j in mode_calcul:
+                if j == i:
+                    vecteur_de_compte_mode[i-1] += 1
+
+        results["metrics"]["vecteur_de_proportion_mode"] = vecteur_de_compte_mode/self.n_instance
+        print(vecteur_de_compte_mode)
+        print(len(mode_calcul))
 
         return results

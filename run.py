@@ -3,8 +3,8 @@ from execute import Execute
 import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
+import pandas as pd
 import json
-
 
 def run_one_game_experiments(game_name, matrices, noise_levels, algos, rounds=500, horizon=1000, n_agents=2):
     """
@@ -31,12 +31,9 @@ def run_one_game_experiments(game_name, matrices, noise_levels, algos, rounds=50
     return results
 
 
-def plot_results(game_name, results, noise_levels, algos, save_folder="Workshop/Figure"):
-    sharey = True
+def plot_results(game_name, results, noise_levels, algos,y_axes, save_folder="Workshop/Figure"):
+    sharey = False
     fig, axes = plt.subplots(1, 3, sharey=sharey, figsize=(15, 4))
-
-    all_y_values = []
-
     for ax, noise in zip(axes, noise_levels):
         for algo_paired in algos:
             title = f"{algo_paired[0]}×{algo_paired[1]}_{noise[1]}"
@@ -49,34 +46,24 @@ def plot_results(game_name, results, noise_levels, algos, save_folder="Workshop/
                 label=f"{algo_paired[0]}$\\times${algo_paired[1]}",
                 linewidth=1,
             )
-            ax.plot(
+            ax.fill_between(
                 x,
+                mean,
                 mean + std,
-                linestyle="--",
-                alpha=0.5
+                alpha=0.2
             )
-
-        for line in ax.get_lines():
-            all_y_values.extend(line.get_ydata())
-
-        y_max = max(all_y_values)
-
-        margin = 0.1 * (y_max - 0)
-        y_max += margin
-
         ax.set_xlim(left=0)
-        ax.set_ylim(0, y_max)
+        ax.set_ylim(bottom=0)
         ax.margins(x=0, y=0)
         ax.set_title(f"$\\sigma_{{noise}}={noise[1]}$")
         ax.set_xlabel("Round (t)")
         sns.despine(ax=ax, trim=True)
-        ax.tick_params(labelleft=True)
 
-    # # # 3) Labels communs
-    # for i in y_axes:
-    #     axes[0].set_ylim(y_min, y_max)
-    #     axes[1].set_ylim(y_min, y_max)
-    #     axes[2].set_ylim(y_min, y_max)
+    # 3) Labels communs
+    for i in y_axes:
+        axes[0].set_ylim(axes[i].get_ylim())
+        axes[1].set_ylim(axes[i].get_ylim())
+        axes[2].set_ylim(axes[i].get_ylim())
 
     sns.set_style("whitegrid")
     for ax in axes:
@@ -92,6 +79,18 @@ def plot_results(game_name, results, noise_levels, algos, save_folder="Workshop/
     fig.savefig(f"{save_folder}/{game_name}.pdf", dpi=300, bbox_inches="tight")
     plt.close(fig)
 
+def plot_results_action_mode(game_name, results, noise_levels, algos, save_folder="Workshop/Figure"):
+    for noise in noise_levels:
+        table_data = {}
+        for algo_pair in algos:
+            title = f"{algo_pair[0]}×{algo_pair[1]}_{noise[1]}"
+            data = results[title]['metrics']["vecteur_de_proportion_mode"]
+            table_data[f"{algo_pair[0]}×{algo_pair[1]}"] = data
+
+        # Create DataFrame and save as CSV
+        df = pd.DataFrame(table_data)
+        filename = f"{save_folder}/{game_name}_action_mode_{noise[1]}.csv"
+        df.to_csv(filename)
 
 
 def plot_results_exploration(game_name, results, noise_levels, algos,y_axes, save_folder="Workshop/Figure"):
@@ -208,7 +207,7 @@ if __name__ == "__main__":
 
     # Configuration générale des styles
     plt.rcParams.update({
-        "text.usetex": False,
+        "text.usetex": True,
         "font.family": "serif",
         "font.serif": ["Times New Roman"],
         "figure.dpi": 300,
@@ -222,16 +221,16 @@ if __name__ == "__main__":
 
     # Dictionnaire des jeux avec leurs matrices respectives
     games = {
-        "PG_wp": [np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]]),
-                  np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]])],
-        "PG": [np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]]),
-               np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]])],
-        "PD": [np.array([[0.6, 0], [1, 0.4]]),
-               np.array([[0.6, 0], [1, 0.4]]).T],
-        "SG": [np.array([[1, 0], [0, 0.5]]),
-               np.array([[1, 0], [0, 0.5]])],
-        "CG_no": [np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]]),
-                  np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]])]
+        "PG_wp": [[np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]]),
+                  np.array([[1, 0.1, 0], [0.1, 0.28, 0.1], [0, 0.1, 1]])], [2,1,2]],
+        "PG": [[np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]]),
+               np.array([[1, 0, 0], [0, 0.2, 0], [0, 0, 1]])], [0,0,2]],
+        "PD": [[np.array([[0.6, 0], [1, 0.4]]),
+               np.array([[0.6, 0], [1, 0.4]]).T], [1,1,2]],
+        "SG": [[np.array([[1, 0], [0, 0.5]]),
+               np.array([[1, 0], [0, 0.5]])],[1,1,2]],
+        "CG_no": [[np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]]),
+                  np.array([[1, 0, 0.75], [0, 0.9, 0.85], [0.75, 0.75, 0.85]])],[2,2,2]]
     }
 
     # Paramètres communs à toutes les expériences
@@ -245,9 +244,6 @@ if __name__ == "__main__":
     ]
 
     for game in tqdm(games.keys()):
-        results = run_one_game_experiments(game ,games[game][0], noise_levels, algo_pairs, rounds=15, horizon=500, n_agents=2)
+        results = run_one_game_experiments(game ,games[game][0], noise_levels, algo_pairs, rounds=500, horizon=1000, n_agents=2)
         with open('data.json', 'w') as json_file:
             json.dump(results, json_file, indent=4)
-
-
-
