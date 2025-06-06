@@ -16,8 +16,6 @@ class Execute:
         self.title = title
 
     def runOnePDExperiment(self, matrices, algo, noise_dist, noise_params):
-
-        # Initialisation de l'environnement
         env = Environnement(matrices, noise_dist, noise_params)
         for agent in range(0, self.n_agents):
             a_space = AgentSpace(len(matrices[0][0]))
@@ -31,7 +29,6 @@ class Execute:
             plays.append(actions)
             exploration_list.append(explorations)
 
-        # Il faudrait enlever cumul_reward et le calucler ailleurs
         actions_played = [[i[0] for i in plays],[i[1] for i in plays]]
         regrets = [env.agents[k].regret for k in range(self.n_agents)]
         rewards = [env.agents[k].reward for k in range(self.n_agents)]
@@ -40,22 +37,19 @@ class Execute:
     
 
     def getPDResult(self, matrices, algo, noise_dist='normal', noise_params=(0, 0.05)):
-        # Normalisation de matrices
         matrices_norm = [normalizeMatrix(mat,0) for mat in matrices]
-        # Boucle sur les itérations
         all_rewards = []
         all_regrets = []
         all_plays = []
         all_explorations = []
 
-        for realisation in range(0, self.n_instance): #for realisation in tqdm(range(0, self.n_instance)):
+        for realisation in range(0, self.n_instance):
             plays, regrets, rewards, explorations = self.runOnePDExperiment(matrices_norm, algo, noise_dist, noise_params)
             all_plays.append(np.array(plays))
             all_rewards.append(np.array(rewards).T)
             all_regrets.append(np.array(regrets).T)
             all_explorations.append(np.array(explorations))
 
-        # 2) Empilement en tableaux 3D : (timesteps, n_agents, n_instance)
         plays_arr = np.stack(all_plays, axis=2)
         rewards_arr  = np.stack(all_rewards, axis=2)
         regrets_arr = np.stack(all_regrets, axis=2)
@@ -63,7 +57,6 @@ class Execute:
         explorations_arr = np.stack(all_explorations, axis=0).T
         explorations_conjointe_arr = np.min(explorations_arr, axis=1)
 
-        # 3) Calcul de la moyenne et de l’écart-type le long de l’axe réalisations
         mean_r     = rewards_arr.mean(axis=2)
         std_r      = rewards_arr.std (axis=2)
         mean_reg    = cum_regrets_arr.mean(axis=2)
@@ -92,10 +85,9 @@ class Execute:
             }
         results['metrics']['mean_exploration_conjointe'] = mean_exploration_conjointe
 
-        # 5) Optionnel : proportions d'actions
         props = {}
         for a in range(len(matrices[0][0])):
-            prop = np.mean(plays_arr == a, axis=2)  # shape (n_steps, n_agents)
+            prop = np.mean(plays_arr == a, axis=2)
             props[f'action_{a}'] = {
                 f'agent_{i}': prop[:, i]
                 for i in range(self.n_agents)
@@ -119,12 +111,12 @@ class Execute:
         for j in range(counts.shape[0]):
             for idx, t in enumerate(types):
                 vecteur_de_compte[j, idx] = np.count_nonzero(counts[j] == t)
-        results["metrics"]["vecteur_de_comptes"] = vecteur_de_compte
+        results["metrics"]["vecteur_de_props"] = vecteur_de_compte/self.n_instance
 
         mode_result = stats.mode(counts[-50:, :], axis=0, keepdims=True)
-        mode_calcul = mode_result.mode[0]  # (1, n_columns)
+        mode_calcul = mode_result.mode[0]
         vecteur_de_compte_mode = np.zeros(len(types), dtype=int)
-        for i in range(len(types)+1): # À améliorer
+        for i in range(len(types)+1):
             for j in mode_calcul:
                 if j == i:
                     vecteur_de_compte_mode[i-1] += 1

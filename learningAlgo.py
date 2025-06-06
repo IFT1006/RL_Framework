@@ -12,7 +12,6 @@ class LearningAlgo:
     def getInitialState(self):
         first_time = False
         action = 0
-        # générer l'action aléatoirement pour l'initialisation
         if self.a_space.t <= self.a_space.n_arms:
             action = self.init_sequence[self.a_space.t-1]
             first_time = True
@@ -22,7 +21,6 @@ class LearningAlgo:
     def getUCBAction(self, first_time, action):
         exploration = 1
         if not first_time:
-            # start the algo after initialization
             var = max(self.noise_param + .25, 1e-2)
             est_opt = np.sqrt(8 * var * np.log(self.a_space.t) / self.a_space.plays)
             action_val = self.a_space.avg_reward + est_opt
@@ -33,16 +31,14 @@ class LearningAlgo:
             else:
                 action = int(np.random.choice(best))
 
-            # Exploration
             best_greedy = np.flatnonzero(self.a_space.avg_reward == self.a_space.avg_reward.max())
             exploration = int(action not in best_greedy)
 
         return action, exploration
     
     def getTSAction(self, first_time, action):
-        # Mettre self. quand on va diviser les algos
-        mu_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
-        var_0 = 1 # Lorsqu'on va diviser, il faut qu'on puisse modifier ça
+        mu_0 = 1
+        var_0 = 1
         var = max(self.noise_param + .25, 1e-2)
         exploration = 1
         if not first_time:
@@ -56,7 +52,6 @@ class LearningAlgo:
             else:
                 action = int(np.random.choice(best))
 
-            # Exploration
             best_greedy = np.flatnonzero(mu_post == mu_post.max())
             exploration =  int(action not in best_greedy)
 
@@ -78,7 +73,6 @@ class LearningAlgo:
             else:
                 action = int(np.random.choice(best))
 
-            # Exploration
             best_greedy = np.flatnonzero(self.a_space.avg_reward == self.a_space.avg_reward.max())
             exploration =  int(action not in best_greedy)
 
