@@ -1,0 +1,48 @@
+{
+  "pd": [
+    {
+      "horizon": 500, 
+      "rounds": 1000,
+      "n_agents": 2,
+      "const" : [2,1], 
+      "noise_dist": "normal",
+      "noise_params": [0.0, 1],
+      "matrices": [[[1, 0, 0.5],[0, 1, 0.5],[0.5, 0.5, 0.5]], [[1, 0, 0.5],[0, 1, 0.5],[0.5, 0.5, 0.5]]],
+      "algos": ["UCB","TS"],
+      "title": "PD_UCB_UCB_N_1"
+    },
+    {
+      "horizon": 1000, 
+      "rounds": 100,
+      "n_agents": 2,
+      "const" : [2,2], 
+      "noise_dist": "normal",
+      "noise_params": [0.0, 1],
+      "matrices": [[[11, -30, 0],[-30, 7, 6],[11, -30, 0],[-30, 7, 6]], [[11, -30, 0],[-30, 7, 6],[11, -30, 0],[-30, 7, 6]]],
+      "algos": ["UCB","UCB"],
+      "title": "CD_UCB2_UCB2_N1"
+    },
+    {
+      "horizon": 1000, 
+      "rounds": 100,
+      "n_agents": 2,
+      "const" : [2,2], 
+      "noise_dist": "normal",
+      "noise_params": [0.0, 0.1],
+      "matrices": [[[11, -30, 0],[-30, 7, 6],[11, -30, 0],[-30, 7, 6]], [[11, -30, 0],[-30, 7, 6],[11, -30, 0],[-30, 7, 6]]],
+      "algos": ["UCB","UCB"],
+      "title": "CD_UCB2_UCB2_N0.1"
+    },
+    {
+      "horizon": 1000, 
+      "rounds": 100,
+      "n_agents": 2,
+      "const" : [2,2], 
+      "noise_dist": "normal",
+      "noise_params": [0.0, 0],
+      "matrices": [[[11, -30, 0],[-30, 7, 6],[11, -30, 0],[-30, 7, 6]], [[11, -30, 0],[-30, 7, 6],[11, -30, 0],[-30, 7, 6]]],
+      "algos": ["UCB","UCB"],
+      "title": "CD_UCB2_UCB2_N0"
+    }
+  ]
+}
